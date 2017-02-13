@@ -29,7 +29,7 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/aarongoa/marbles.git"
+    "url": "https://github.com/aarongoa/blockchain-property-demo.git"
   },
   "devDependencies": {
     "gulp": "^3.9.0",
