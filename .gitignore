@@ -1,0 +1,9 @@
+**/launchConfigurations
+**/node_modules
+**/.vscode
+**/temp
+**/public/logs/**
+.idea
+.project
+/cc_summaries
+chaincode_details/*.json
