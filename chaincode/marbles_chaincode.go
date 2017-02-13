@@ -26,7 +26,7 @@ type Survey struct {
 	Owners   []string `json:"owners"`
 }
 
-// Init function initializes the blockchain network
+// Init : Adds initial block to chaincode on blockchain network
 func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string, args []string) ([]byte, error) {
 	var Aval int
 	var err error
@@ -92,9 +92,11 @@ func (t *SimpleChaincode) initProperty(stub shim.ChaincodeStubInterface, args []
 	// Get owner's state from blockchain network
 	valAsBytes, _ := stub.GetState(args[0])
 
+	// Unmarshalling the owner's state
 	var retrieveSurveyNos Owner
 	json.Unmarshal(valAsBytes, &retrieveSurveyNos)
 
+	// Setting the owner object
 	if retrieveSurveyNos.Aadhar == 0 {
 		owner.Aadhar, _ = strconv.ParseInt(args[1], 10, 64)
 		owner.SurveyNos = append(owner.SurveyNos, surveyNumber)
@@ -113,9 +115,11 @@ func (t *SimpleChaincode) initProperty(stub shim.ChaincodeStubInterface, args []
 	// Get the survey state from blockchain network
 	surveyAsBytes, _ := stub.GetState(args[2])
 
+	// Unmarshalling the survey object
 	var retrieveSurvey Survey
 	json.Unmarshal(surveyAsBytes, &retrieveSurvey)
 
+	// Setting the survey object
 	if retrieveSurvey.Area == 0 {
 		survey.Location = args[3]
 		survey.Area, _ = strconv.ParseInt(args[4], 10, 64)
@@ -142,12 +146,12 @@ func (t *SimpleChaincode) Query(stub shim.ChaincodeStubInterface, function strin
 	fmt.Println("query is running " + function)
 
 	// Handle different functions
-	if function == "read" { //read a property
-		return t.read(stub, args)
-	} else if function == "readInit" { // read init (key: abc) value, used for tracking pre-flight check
+	if function == "readInit" { // read init (key: 'abc') value, used for tracking pre-flight check
 		return t.readInit(stub, args)
-	} else if function == "readOwner" {
+	} else if function == "readOwner" { // read a owner's details
 		return t.readOwner(stub, args)
+	} else if function == "readSurvey" { // read survey details
+		return t.readSurvey(stub, args)
 	}
 	fmt.Println("query did not find func: " + function) //error
 
@@ -170,14 +174,53 @@ func (t *SimpleChaincode) readInit(stub shim.ChaincodeStubInterface, args []stri
 	return valAsBytes, nil
 }
 
-// read : used for reading chaincode state
-func (t *SimpleChaincode) read(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-	return nil, nil
-}
-
 // read a owner's details
 func (t *SimpleChaincode) readOwner(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-	return nil, nil
+	if len(args) != 1 {
+		return nil, errors.New("Invalid numbers of arguments. Expected ")
+	}
+
+	var owner Owner
+
+	// Get owner's details from chaincode state
+	valAsBytes, _ := stub.GetState(args[0])
+	// Unmarshalling the owner's details
+	json.Unmarshal(valAsBytes, &owner)
+
+	if owner.Aadhar == 0 {
+		return nil, errors.New("Owner doesn't exist")
+	}
+
+	//Marshalling the owner object
+	bytes, _ := json.Marshal(owner)
+	a := []byte("'")
+	str := append(a, bytes...)
+	str = append(str, a...)
+	return []byte(str), nil // returns JSON of owner's details
+}
+
+// read a survey details
+func (t *SimpleChaincode) readSurvey(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+	if len(args) != 1 {
+		return nil, errors.New("Invalid numbers of arguments. Expected ")
+	}
+
+	var survey Survey
+	// Get survey details from chaincode state
+	valAsBytes, _ := stub.GetState(args[0])
+	// Unmarshalling the owner's details
+	json.Unmarshal(valAsBytes, &survey)
+
+	if survey.Area == 0 {
+		return nil, errors.New("Survey number doesn't exist")
+	}
+
+	//Marshalling the survey object
+	bytes, _ := json.Marshal(survey)
+	a := []byte("'")
+	str := append(a, bytes...)
+	str = append(str, a...)
+	return []byte(str), nil // returns JSON of survey details
 }
 
 func main() {
@@ -186,4 +229,3 @@ func main() {
 		fmt.Printf("Error starting Simple chaincode: %s", err)
 	}
 }
-
