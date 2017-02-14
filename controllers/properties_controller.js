@@ -25,6 +25,7 @@ module.exports.createProperty = (req, res) => {
 
   const property = {
     "owner": req.body.owner.toString().trim(),
+    "survey": req.body.survey.toString().trim(),
     "aadhar": req.body.aadhar.toString().trim(),
     "area": req.body.area.toString().trim(),
     "location": req.body.location.toString().trim()
