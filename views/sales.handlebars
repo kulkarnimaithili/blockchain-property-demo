@@ -55,7 +55,7 @@
 
 </div>
 
-<div id="hidden-users" style="display:inline;">
+<div id="hidden-users">
    {{#each owners}}
     <p id="{{this.name}}" style="display:inline">{{this.propertiesOwned}}</p>
     
@@ -65,9 +65,9 @@
      {{/each}}  --}}
    {{/each}}
 
+   {{!-- To populate area, location --}}
    {{#each surveys}}
-     <p class="location" style="display:inline">{{this.location}}</p>
-     <p class="area" style="display:inline">{{this.area}}</p>
+      <p class="{{this.surveyNo}}" style="display:inline">{{this.location}}/{{this.area}}</p>
    {{/each}}
 </div>
 </div>

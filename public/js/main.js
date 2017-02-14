@@ -68,9 +68,9 @@ $('#buyFrom').on('change', function() {
   var selectedPostion = $("#buyFrom").prop('selectedIndex');
   var selectedOwner = $('#buyFrom').find(":selected").text();
   //console.log(selectedOwner);
-  console.log("Selected Owner= " + selectedOwner +" Selected Position " + selectedPostion);
+  //console.log("Selected Owner= " + selectedOwner +" Selected Position " + selectedPostion);
   var ownersList = document.getElementById(selectedOwner);
-  console.log("\nOwnerslist= " + ownersList.innerHTML);
+  //console.log("\nOwnerslist= " + ownersList.innerHTML);
   var str = ownersList.innerHTML;
   var res = str.split(",");
 
@@ -140,34 +140,32 @@ $('#buyFrom').on('change', function() {
 });
 */
 $('#survey').on('change', function() {
+
+
+  var selectedPostion = $("#buyFrom").prop('selectedIndex');
+  var selectedOwner = $('#buyFrom').find(":selected").text();
+ // console.log("Selected Owner= " + selectedOwner +" Selected Position " + selectedPostion);
+  // References to textFields
   var areaField = document.getElementById("areaField");
   var addressField = document.getElementById("addressField");
 
-  areaField.value = "Test";
-  addressField.value = "Test2";
-
+  
   var selectedPostion = $("#survey").prop('selectedIndex');
   var selectedSurvey = $('#survey').find(":selected").text();
   console.log(selectedSurvey);
+ // console.log(selectedSurvey);
 
-  var locations = $(".location");
-  var areas = $(".area");
+  var owners = document.getElementsByClassName(selectedSurvey);
+  var str= owners[0].innerHTML;
+  var result = str.split("/");
 
-  areaField.value = locations[--selectedPostion].innerHTML;
-  addressField.value = areas[--selectedPostion].innerHTML;
-
-});
-
-
-
-
+  areaField.value = result[0];
+  addressField.value = result[1];
 
 });
-  /*
-  $('#survey').html('');
 
-       eval(selectedOwner).forEach(function(t) { 
-            $('#survey').append('<option>'+ABCD+'</option>');
-        });
-    }*/
 
+
+
+
+});
