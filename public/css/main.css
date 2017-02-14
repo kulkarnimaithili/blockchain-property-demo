@@ -2,18 +2,23 @@ html {
   width: 100%;
   height: 100%;
 }
+
 body {
   font: 400 15px/1.8 Lato, sans-serif;
   color: #777;
   width: 100%;
   height: 100%;
 }
-h3,
-h4 {
+
+h3,h4 {
   margin: 10px 0 30px 0;
   letter-spacing: 10px;
   font-size: 20px;
   color: #111;
+}
+#home{
+  width: 100%
+  height: 100%;
 }
 .container {
   padding: 80px 120px;
@@ -35,6 +40,45 @@ h4 {
 .person:hover {
   border-color: #f1f1f1;
 }
+
+.image-set{
+    max-height: 100%;
+    max-width:100%;
+}
+
+.jumbotron{
+  margin-top: 20px;
+  z-index: 100;
+  position: absolute;
+  color: rgb(0,87,231);
+  font-size: 24px;
+  font-weight: bold;
+  left: 250px;
+  top: 50px;
+  align-content: center;
+  background-color: rgb(230, 230, 230);;
+  opacity: 0.65;
+  height: auto;
+  width: auto;
+  background-size: cover;
+  padding: 10px;
+}
+
+#jbText{
+  font-weight: bold;
+  margin-left: auto;
+  font-family: Verdana, sans-serif;
+}
+
+#jumboHeader{
+  text-align: center;
+  font-family: 'Russo One', sans-serif;
+
+}
+
+#myCarousel{
+  height: 100%;
+}
 .carousel-inner img {
   /* -webkit-filter: grayscale(90%);*/
   /* filter: grayscale(90%);*/
@@ -42,9 +86,12 @@ h4 {
   
   width: 100%;
   /* Set width to 100% */
-  
   margin: auto;
+
+
 }
+
+
 @media (max-width: 600px) {
   .carousel-caption {
     display: none;
@@ -123,18 +170,20 @@ h2 {
 .navbar {
   font-family: Montserrat, sans-serif;
   margin-bottom: 0;
-  background-color: #2d2d30;
+  background-color: rgb(0,87,231);
   border: 0;
-  font-size: 11px !important;
+  font-size: 12px !important;
   letter-spacing: 4px;
   opacity: 0.9;
 }
 .navbar li a,
 .navbar .navbar-brand {
   color: #d5d5d5 !important;
+  height: 45px;
 }
 .navbar-nav li a:hover {
   color: #fff !important;
+  height: 55px;
 }
 .navbar-nav li.active a {
   color: #fff !important;
