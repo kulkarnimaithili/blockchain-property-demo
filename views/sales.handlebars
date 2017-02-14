@@ -1,58 +1,53 @@
 <div id="sales" class="bg-1">
-    <div class="container">
-        <h3 class="text-center">SALES</h3>
-        <p class="text-center">
-            <br>
-        </p>
-        <div id="salesinner">
-            <div class="col-sm-6 form-group">
-                <label for="usr">Buy From: </label>
-                <br>
-
-                <select class="salesDropdown" id="buyFrom" value="--Buy From--">
-                    <option value="">Select Seller </option>
-                    {{#each owners}}
-                    <option value="{{this.name}}">{{this.name}}</option>
-                    {{/each}}
-                </select>
-
-            </div>
-            <div class="col-sm-6 form-group">
-                <label for="usr">Area:</label>
-                <input type="text" class="form-control" id="areaField" name="Area" disabled="disabled">
-            </div>
-
-            {{!-- Survey Number --}}
-            <div class="col-sm-6 form-group">
-                <label for="usr">Survey No: </label>
-                <br>
-                <select id="survey" value="--Buy From--">
-                    <option value="">Select Survey No</option>
-                </select>
-            </div>
-
-            <div class="col-sm-6 form-group">
-                <label for="Address">Address:</label>
-                <textarea class="form-control" rows="5" id="addressField" name="Address" disabled="disabled"></textarea>
-            </div>
-            <br>
-            <div class="col-xs-12" size="2">
-                <hr>
-            </div>
-            <div class="col-sm-6 form-group">
-                <label for="usr">Buyer: </label>
-                <br>
-
-                <select class="salesDropdown" id="sellTo" value="--SBuyer--">
-                    <option value="">Select Buyer </option>
-                    {{#each owners}}
-                    <option value="{{this.name}}">{{this.name}}</option>
-                    {{/each}}
-                </select>
-            </div>
-            <input type="button" class="col-sm-6 form-group" id="buyButton" value="BUY" />
-        </div>
+  <div class="container">
+    <h3 class="text-center">SALES</h3>
+    <p class="text-center">
+      <br>
+    </p>
+    <div id="salesinner">
+      <div class="col-sm-6 form-group">
+        <label for="usr">Buy From: </label>
+        <br>
+        <select class="salesDropdown" id="buyFrom" value="--Buy From--">
+          <option value="">Select Seller </option>
+          {{#each owners}}
+          <option value="{{this.name}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="usr">Area:</label>
+        <input type="text" class="form-control" id="areaField" name="Area" disabled="disabled">
+      </div>
+      {{!-- Survey Number --}}
+      <div class="col-sm-6 form-group">
+        <label for="usr">Survey No: </label>
+        <br>
+        <select id="survey" value="--Buy From--">
+          <option value="">Select Survey No</option>
+        </select>
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="Address">Address:</label>
+        <textarea class="form-control" rows="5" id="addressField" name="Address" disabled="disabled"></textarea>
+      </div>
+      <br>
+      <div class="col-xs-12" size="2">
+        <hr>
+      </div>
+      <div class="col-sm-6 form-group">
+        <label for="usr">Buyer: </label>
+        <br>
+        <select class="salesDropdown" id="sellTo" value="--SBuyer--">
+          <option value="">Select Buyer </option>
+          {{#each owners}}
+          <option value="{{this.name}}">{{this.name}}</option>
+          {{/each}}
+        </select>
+      </div>
+      <input type="button" class="col-sm-6 form-group" id="buyButton" value="BUY" />
     </div>
+  </div>
 </div>
 
 <div id="hidden-users" style="visibility: hidden;">
