@@ -42,8 +42,8 @@ h3,h4 {
 }
 
 .image-set{
-    max-height: 100%;
-    max-width:100%;
+  max-height: 100%;
+  max-width:100%;
 }
 
 .jumbotron{
@@ -94,8 +94,8 @@ h3,h4 {
 
 @media (max-width: 600px) {
   .carousel-caption {
-    display: none;
-    /* Hide the carousel text when the screen is less than 600 pixels wide */
+  display: none;
+  /* Hide the carousel text when the screen is less than 600 pixels wide */
   }
 }
 .bg-1 {
