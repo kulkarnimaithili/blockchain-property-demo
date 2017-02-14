@@ -72,14 +72,20 @@ $(document).ready(function() {
 
         $("#survey").empty();
         $('#survey').append('<option>' + "Select Survey No" + '</option>');
-        
         for (var i = 0; i < res.length; i++) {
-            $('<option/>').val(res[i]).html(res[i]).appendTo('#survey');
-            //$('#survey').append('<option>' + res[i] + '</option>');
+            //$('<option/>').val(res[i]).html(res[i]).appendTo('#survey');
+            $('#survey').append('<option>' + res[i] + '</option>');
         }
 
-        var sellTo = document.getElementById("sellTo");
-        sellTo.remove(selectedPostion);
+        var owners = $(".ownersBx");
+        $('#sellTo').empty();
+        $('#sellTo').append('<option>' + "Select Buyer" + '</option>');
+        for (var j = 0; j <owners.length; j++) {
+            if(owners[j].innerHTML != selectedOwner){
+              $('#sellTo').append('<option>' + owners[j].innerHTML + '</option>');
+            }
+        } 
+
     });
 
     // On Click survey dropdown, populate area and location
