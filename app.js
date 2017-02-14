@@ -399,8 +399,8 @@ function cb_deployed(e){
 				console.log('hey new block, lets refresh and broadcast to all', chain_stats.height-1);
 				ibc.block_stats(chain_stats.height - 1, cb_blockstats);
 				wss.broadcast({msg: 'reset'});
-				chaincode.query.read(['_marbleindex'], cb_got_index);
-				chaincode.query.read(['_opentrades'], cb_got_trades);
+				// chaincode.query.read(['_marbleindex'], cb_got_index);
+				// chaincode.query.read(['_opentrades'], cb_got_trades);
 			}
 
 			//got the block's stats, lets send the statistics
