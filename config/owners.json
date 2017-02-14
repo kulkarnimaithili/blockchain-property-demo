@@ -1,0 +1,71 @@
+[
+    {
+        "name": "John Doe",
+        "aadhar": "000000000001",
+        "propertiesOwned": [
+            "10",
+            "11",
+            "12"
+        ]
+    },
+    {
+        "name": "Jane Doe",
+        "aadhar": "000000100002",
+        "propertiesOwned": [
+            "13",
+            "14",
+            "15"
+        ]
+    },
+    {
+        "name": "John Smith",
+        "aadhar": "000000200003",
+        "propertiesOwned": [
+            "16",
+            "17"
+        ]
+    },
+    {
+        "name": "Candice Swanepoel",
+        "aadhar": "000000000004",
+        "propertiesOwned": [
+            "19",
+            "20",
+            "21"
+        ]
+    },
+    {
+        "name": "Behati Prinsloo",
+        "aadhar": "000000078005",
+        "propertiesOwned": [
+            "18"
+        ]
+    },
+    {
+        "name": "Julia Andrews",
+        "aadhar": "000025600006",
+        "propertiesOwned": [
+            "22",
+            "23",
+            "24"
+        ]
+    },
+    {
+        "name": "Mark Ruffalo",
+        "aadhar": "000123400007",
+        "propertiesOwned": [
+            "25",
+            "26",
+            "27"
+        ]
+    },
+    {
+        "name": "Bruce Wayne",
+        "aadhar": "398600000008",
+        "propertiesOwned": [
+            "28",
+            "29",
+            "30"
+        ]
+    }
+]

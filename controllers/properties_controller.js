@@ -2,6 +2,10 @@
 
 const propertiesGo = require('../utils/ws_part1');
 
+const config = require('../config/');
+const owners = config.getOwners();
+const surveys = config.getSurveys();
+
 // GET /properties/:id
 module.exports.getPropertyByID = (req, res) => {
   const id = req.params.id.toString().trim();
@@ -25,6 +29,7 @@ module.exports.createProperty = (req, res) => {
 
   const property = {
     "owner": req.body.owner.toString().trim(),
+    "survey": req.body.survey.toString().trim(),
     "aadhar": req.body.aadhar.toString().trim(),
     "area": req.body.area.toString().trim(),
     "location": req.body.location.toString().trim()

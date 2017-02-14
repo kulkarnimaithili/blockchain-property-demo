@@ -25,7 +25,8 @@
     "ws": "1.0.1"
   },
   "engines": {
-    "node": "0.12.0"
+    "node": "6.9.5",
+    "npm": "3.10.10"
   },
   "repository": {
     "type": "git",

@@ -17,8 +17,8 @@ module.exports.myProcessMsg = function(data, callback){
 
     const property = data.property;
     
-    if(property.owner && property.aadhar && property.area && property.location){
-      chaincode.invoke.init_property([property.owner.toString(), property.aadhar.toString(), property.area.toString(), property.location.toString()], (err, response) => {
+    if(property.owner && property.aadhar && property.area && property.location && property.survey){
+      chaincode.invoke.initProperty([property.owner, property.aadhar, property.survey, property.location, property.area], (err, response) => {
         if (err) {
           callback(err, null);
         } else {

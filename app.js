@@ -101,7 +101,7 @@ app.use(function(err, req, res, next) {														// = development error hand
 	res.status(errorCode);
 	req.bag.error = {msg:err.stack, status:errorCode};
 	if(req.bag.error.status == 404) req.bag.error.msg = 'Sorry, I cannot locate that file';
-	res.render('template/error', {bag:req.bag});
+	res.render('error');
 });
 
 
@@ -399,8 +399,8 @@ function cb_deployed(e){
 				console.log('hey new block, lets refresh and broadcast to all', chain_stats.height-1);
 				ibc.block_stats(chain_stats.height - 1, cb_blockstats);
 				wss.broadcast({msg: 'reset'});
-				chaincode.query.read(['_marbleindex'], cb_got_index);
-				chaincode.query.read(['_opentrades'], cb_got_trades);
+				// chaincode.query.read(['_marbleindex'], cb_got_index);
+				// chaincode.query.read(['_opentrades'], cb_got_trades);
 			}
 
 			//got the block's stats, lets send the statistics

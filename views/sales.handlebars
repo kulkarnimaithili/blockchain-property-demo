@@ -11,13 +11,9 @@
         <label for="usr">Buy From: </label><br>
         <select name="name" value="--Buy From--">
           <option value="" >Select Seller </option>
-          <option value="Amol Pednekar">Amol Pednekar</option>
-          <option value="Riya Borkar">Riya Borkar</option>
-          <option value="Aaron Colaco">Aaron Colaco</option>
-          <option value="Shantanu Kulkarni">Shantanu Kulkarni</option>
-          <option value="Saideep Bhosle">Saideep Bhosle</option>
-          <option value="Rishab Bandekar">Rishab Bandekar</option>
-          <option value="Vivek Kumar">Vivek Kumar</option>
+          {{#each owners}}
+            <option value={{this.name}}>{{this.name}}</option>
+          {{/each}}
         </select>
       </div>
       <div class="col-sm-6 form-group">
@@ -28,13 +24,7 @@
         <label for="usr">Survey No: </label><br>
         <select name="name" value="--Buy From--">
           <option value="" >Select Survey No: </option>
-          <option value="Amol Pednekar">Amol Pednekar</option>
-          <option value="Riya Borkar">Riya Borkar</option>
-          <option value="Aaron Colaco">Aaron Colaco</option>
-          <option value="Shantanu Kulkarni">Shantanu Kulkarni</option>
-          <option value="Saideep Bhosle">Saideep Bhosle</option>
-          <option value="Rishab Bandekar">Rishab Bandekar</option>
-          <option value="Vivek Kumar">Vivek Kumar</option>
+          
         </select>
       </div>
       <div class="col-sm-6 form-group">
@@ -53,13 +43,9 @@
         <label for="usr">Buyer: </label><br>
         <select name="name" value="--SBuyer--">
           <option value="" >Select Buyer </option>
-          <option value="Amol Pednekar">Amol Pednekar</option>
-          <option value="Riya Borkar">Riya Borkar</option>
-          <option value="Aaron Colaco">Aaron Colaco</option>
-          <option value="Shantanu Kulkarni">Shantanu Kulkarni</option>
-          <option value="Saideep Bhosle">Saideep Bhosle</option>
-          <option value="Rishab Bandekar">Rishab Bandekar</option>
-          <option value="Vivek Kumar">Vivek Kumar</option>
+          {{#each owners}}
+            <option value={{this.name}}>{{this.name}}</option>
+          {{/each}}
         </select>
       </div>
 

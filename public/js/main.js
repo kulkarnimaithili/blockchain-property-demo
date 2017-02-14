@@ -13,13 +13,15 @@ $(document).ready(function() {
 
   //function to send data 
   var sendData = function() { 
-    var owner = $('#name').val();
-    var aadhar = $('#Aadhar').val();
-    var area = $('#Area').val();
-    var location = $('#Address').val();
+    var owner = $('#ownerName').find(":selected").text();
+    var survey = $('#survey').val();
+    var aadhar = $('#aadhar').val();
+    var area = $('#area').val();
+    var location = $('#location').val();
 
     var data = {
       owner,
+      survey,
       aadhar,
       area,
       location
