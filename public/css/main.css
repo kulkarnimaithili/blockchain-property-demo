@@ -183,7 +183,6 @@ h2 {
 }
 .navbar-nav li a:hover {
   color: #fff !important;
-  height: 55px;
 }
 .navbar-nav li.active a {
   color: #fff !important;
@@ -253,7 +252,7 @@ li {
   margin: 10px 10px 10px 10px;
 }
 #register {
-  height: 100%;
+  height: auto;
 }
 #registerButton {
   margin-top: 25px;

@@ -1,16 +1,16 @@
 [
     {
         "surveyNo": "10",
-        "location": "Margao",
-        "area": "3131",
+        "location": "Panjim",
+        "area": "3135",
         "allOwners": [
             "John Doe"
         ]
     },
     {
         "surveyNo": "11",
-        "location": "Margao",
-        "area": "3131",
+        "location": "Siolim",
+        "area": "3132",
         "allOwners": [
             "John Doe"
         ]

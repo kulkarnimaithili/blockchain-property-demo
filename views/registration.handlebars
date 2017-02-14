@@ -1,40 +1,49 @@
+
+
 <div id="register" class="container text-center">
-  <br>
-  <h3>Register Your Property!</h3>
-  <br>
-  <form id="form-register" name="registration">
-    <div id="dropdownname" class="col-sm-6 form-group" >
-      <label for="usr">Name: </label><br>
-      <select name="ownerName" id="ownerName" value="--Select Name--" style="width:434px;">
-        <option value="" >Select your Name </option>
-        {{#each owners}}
-          <option value={{this.name}}>{{this.name}}</option>
-        {{/each}}
-      </select>
-    </div>
-    <div class="col-sm-6 form-group">
-      <label for="usr1">Survey No:</label>
-      <input type="text" class="form-control" id="survey" name="survey" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  maxlength="5" minlength="1">
-    </div>
-    <br><br>
-    <div class="col-sm-6 form-group">
-      <label for="usr">Aadhar Card No:</label>
-      <input type="text" class="form-control" id="aadhar" name="aadhar" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  maxlength="12" minlength="12">
-    </div>
-    <div class="col-sm-6 form-group">
-      <label for="usr">Area:</label>
-      <input type="text" class="form-control" id="area" name="area" onkeypress='return event.charCode >= 48 && event.charCode <= 57' >
-    </div>
-    <div class="col-sm-12 form-group">
-      <label for="Location">Location:</label>
-      <textarea class="form-control" rows="5" id="location" name="location" ></textarea>
-    </div>
+   <h3>Register Your Property!</h3>
+   <form id="form-register" name="registration">
+      <div id="dropdownname" class="col-sm-6 form-group" >
+         <label for="usr">Name: </label><br>
+         <select name="ownerName" id="ownerName" value="--Select Name--" style="width:434px;">
+            <option value="" >Select your Name </option>
+            {{#each owners}}
+            <option value={{this.name}}>{{this.name}}</option>
+            {{/each}}
+         </select>
+      </div>
+      {{!-- Survey --}}
+      <div class="col-sm-6 form-group">
+         <label for="usr1">Survey No:</label>
+         <input type="text" class="form-control" id="survey" name="survey" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  maxlength="5" minlength="1">
+      </div>
+      <br><br>
+      {{!-- Aadhar --}}
+      <div class="col-sm-6 form-group">
+         <label for="usr">Aadhar Card No:</label>
+         <input type="text" class="form-control" id="aadhar" name="aadhar" {{!-- onkeypress='return event.charCode >= 48 && event.charCode <= 57'  maxlength="12" minlength="12" --}}>
+      </div>
+      {{!-- Area --}}
+      <div class="col-sm-6 form-group">
+         <label for="usr">Area:</label>
+         <input type="text" class="form-control" id="area" name="area" onkeypress='return event.charCode >= 48 && event.charCode <= 57' >
+      </div>
+      {{!-- Location --}}
+      <div class="col-sm-12 form-group">
+         <label for="Location">Location:</label>
+         <textarea class="form-control" rows="5" id="location" name="location" ></textarea>
+      </div>
 </div>
-<div class="button-register"> 
 <button id="registerButton" type="submit" class="btn btn-default"  value="submit">Register</button>
-<br><br>
-</div>
 </form>
 <h2>Block Details</h2>
 <pre id="result"></pre>
+
+<div id="hidden-users" style="display:inline;">
+   {{#each owners}}
+   {{!-- <p class="ownersBx" style="display:inline">{{this.name}}</p> --}}
+   <p class="aadhar" style="display:inline">{{this.aadhar}}</p>
+   {{/each}}
 </div>
+</div>
+

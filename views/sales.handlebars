@@ -5,27 +5,31 @@
     <div id="salesinner">
       <div class="col-sm-6 form-group" >
         <label for="usr">Buy From: </label><br>
-        <select name="name" value="--Buy From--">
+
+        <select name="name" id="buyFrom" value="--Buy From--">
           <option value="" >Select Seller </option>
           {{#each owners}}
             <option value={{this.name}}>{{this.name}}</option>
           {{/each}}
         </select>
+
       </div>
       <div class="col-sm-6 form-group">
         <label for="usr">Area:</label>
-        <input type="text" class="form-control" id="Area" name="Area" onkeypress='return event.charCode >= 48 && event.charCode <= 57' >
+        <input type="text" class="form-control" id="areaField" name="Area" onkeypress='return event.charCode >= 48 && event.charCode <= 57' >
       </div>
+
+      {{!-- Survey Number --}}
       <div class="col-sm-6 form-group" >
         <label for="usr">Survey No: </label><br>
-        <select name="name" value="--Buy From--">
-          <option value="" >Select Survey No: </option>
-          
+        <select id="survey" value="--Buy From--">
+          <option value="" >Select Survey No</option>
         </select>
       </div>
+
       <div class="col-sm-6 form-group">
         <label for="Address">Address:</label>
-        <textarea class="form-control" rows="5" id="Address" name="Address" ></textarea>
+        <textarea class="form-control" rows="5" id="addressField" name="Address" ></textarea>
       </div>
       <br>
       <br>
@@ -35,7 +39,8 @@
       </div>
       <div class="col-sm-6 form-group" >
         <label for="usr">Buyer: </label><br>
-        <select name="name" value="--SBuyer--">
+
+        <select name="name" id="sellTo" value="--SBuyer--">
           <option value="" >Select Buyer </option>
           {{#each owners}}
             <option value={{this.name}}>{{this.name}}</option>
@@ -43,6 +48,26 @@
         </select>
       </div>
       <input type="button" class="col-sm-6 form-group" id = "b1" value="BUY"/>
+
     </div>
+
   </div>
+
+</div>
+
+<div id="hidden-users" style="display:inline;">
+   {{#each owners}}
+    <p id="{{this.name}}" style="display:inline">{{this.propertiesOwned}}</p>
+    
+   <p class="ownersBx" style="display:inline">{{this.name}}</p>
+     {{!-- {{#each propertiesOwned}}
+        <p class="propertiesOwned" style="display:block">{{this}}</p>
+     {{/each}}  --}}
+   {{/each}}
+
+   {{#each surveys}}
+     <p class="location" style="display:inline">{{this.location}}</p>
+     <p class="area" style="display:inline">{{this.area}}</p>
+   {{/each}}
+</div>
 </div>
