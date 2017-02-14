@@ -99,6 +99,8 @@ h3,h4 {
   }
 }
 .bg-1 {
+  /*sales page text*/
+  
   background: #2d2d30;
   color: #bdbdbd;
   height: 100%;
@@ -258,21 +260,27 @@ li {
 #registerButton {
   margin-top: 25px;
 }
- #dropdownname {
-  
-position: absolute;
-left: 38%;
-
-} 
-#salesinner{
-  
-position: absolute;
-left: 40%;
-
-} 
-.b1{  position: absolute;
-
-left: 35%;
-
-
+#dropdownname {} #salesinner {
+  position: absolute;
+  left: 25%;
+}
+#b1 {
+  position: absolute;
+  margin-left: 10em;
+  margin-top: 12em;
+  left: 35%;
+  top: 40%;
+  width: inherit;
+}
+#registerButton {
+  position: absolute;
+  left: 47%;
+  top: 77%;
+}
+hr {
+  height: 1px;
+  color: #f442d1;
+}
+#sales {
+  background: #593b41;
 }

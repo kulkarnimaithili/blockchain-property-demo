@@ -4,10 +4,10 @@
   <br>
     
   <form id="form-register" name="registration">   
-    <div id="dropdownname" class="col-sm-12 form-group" >
-              <label for="usr">Name: </label>
+    <div id="dropdownname" class="col-sm-6 form-group" >
+              <label for="usr">Name: </label><br>
 
-           <select name="name" value="--Select Name--">
+           <select name="name" value="--Select Name--" style="width:434px;">
             <option value="" >Select your Name </option>
             <option value="Amol Pednekar">Amol Pednekar</option>
             <option value="Riya Borkar">Riya Borkar</option>
@@ -20,6 +20,13 @@
 
 
               </div>
+ <div class="col-sm-6 form-group">
+        <label for="usr1">Survey No:</label>
+        <input type="text" class="form-control" id="Aadhar" name="Aadhar" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  maxlength="12" minlength=12>
+       </div>
+
+
+
               <br><br>
 
       <div class="col-sm-6 form-group">
