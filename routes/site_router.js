@@ -20,4 +20,8 @@ router.route('/registration').get(function(req, res){
   res.render('registration', {title: 'Register Property'});
 });
 
+router.route('/sale').get(function(req, res){
+  res.render('sales', {title: 'Sell Property'});
+});
+
 module.exports = router;
