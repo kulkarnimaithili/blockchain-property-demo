@@ -1,171 +1,102 @@
 $(document).ready(function() {
 
-  $('#form-register').on('submit', function(ev) {
+    $('#form-register').on('submit', function(ev) {
 
-    // prevent from auto-submitting  
-    ev.preventDefault();
-    ev.stopPropagation();
+        // prevent from auto-submitting  
+        ev.preventDefault();
+        ev.stopPropagation();
 
-    // if all is good, then submit.
-    sendData();
+        // if all is good, then submit.
+        sendData();
 
-  });
+    });
 
-  //function to send data 
-  var sendData = function() { 
-    var owner = $('#ownerName').find(":selected").text();
-    var survey = $('#survey').val();
-    var aadhar = $('#aadhar').val();
-    var area = $('#area').val();
-    var location = $('#location').val();
+    //function to send data 
+    var sendData = function() {
+        var owner = $('#ownerName').find(":selected").text();
+        var survey = $('#survey').val();
+        var aadhar = $('#aadhar').val();
+        var area = $('#area').val();
+        var location = $('#location').val();
 
-    var data = {
-      owner,
-      survey,
-      aadhar,
-      area,
-      location
+        var data = {
+            owner,
+            survey,
+            aadhar,
+            area,
+            location
+        };
+
+        $.ajax({
+            type: "post",
+            url: "/api/properties",
+            data: data,
+            success: function(response) {
+                console.log(response);
+                $('#result').text(JSON.stringify(response));
+            },
+            error: function(xhr, textStatus, error) {
+                console.log(xhr.statusText);
+                console.log(textStatus);
+                console.log(error);
+            }
+        });
+        return;
     };
 
-    $.ajax({
-      type: "post",
-      url: "/api/properties",
-      data: data,
-      success: function(response) {
-        console.log(response);
-        $('#result').text(JSON.stringify(response));
-      },
-      error: function(xhr, textStatus, error){
-          console.log(xhr.statusText);
-          console.log(textStatus);
-          console.log(error);
+
+    $('#ownerName').on('change', function() {
+        var aadhar = document.getElementById("aadhar");
+
+        // Selected item from dropdown
+        var selectedPostion = $("#ownerName").prop('selectedIndex');
+        if (selectedPostion == 0) {
+            aadhar.value = "";
         }
+        var owners = $(".aadhar");
+
+        aadhar.value = owners[--selectedPostion].innerHTML;
+
     });
-    return;
-  };
 
+    // Sales Page - Buy from
+    $('#buyFrom').on('change', function() {
 
-$('#ownerName').on('change', function() {
-  var aadhar = document.getElementById("aadhar");
+        var selectedPostion = $("#buyFrom").prop('selectedIndex');
+        var selectedOwner = $('#buyFrom').find(":selected").text();
+        
+        var ownersList = document.getElementById(selectedOwner);
+        
+        var str = ownersList.innerHTML;
+        var res = str.split(",");
 
-  // Selected item from dropdown
-  var selectedPostion = $("#ownerName").prop('selectedIndex');
-  if(selectedPostion==0){
-    aadhar.value = "";
-  }
-  //console.log("Selected position : " + selectedPostion);
+        $("#survey").empty();
+        $('#survey').append('<option>' + "Select Survey No" + '</option>');
+        
+        for (var i = 0; i < res.length; i++) {
+            $('<option/>').val(res[i]).html(res[i]).appendTo('#survey');
+            //$('#survey').append('<option>' + res[i] + '</option>');
+        }
 
-  var owners = $(".aadhar");
-  //console.log(owners.length);
+        var sellTo = document.getElementById("sellTo");
+        sellTo.remove(selectedPostion);
+    });
 
-  aadhar.value = owners[--selectedPostion].innerHTML;
+    // On Click survey dropdown, populate area and location
 
-});
+    $('#survey').on('change', function() {
+        // References to textFields
+        var areaField = document.getElementById("areaField");
+        var addressField = document.getElementById("addressField");
 
-// Sales Page - Buy from
-$('#buyFrom').on('change', function() {
-  
-  var selectedPostion = $("#buyFrom").prop('selectedIndex');
-  var selectedOwner = $('#buyFrom').find(":selected").text();
-  //console.log(selectedOwner);
-  //console.log("Selected Owner= " + selectedOwner +" Selected Position " + selectedPostion);
-  var ownersList = document.getElementById(selectedOwner);
-  //console.log("\nOwnerslist= " + ownersList.innerHTML);
-  var str = ownersList.innerHTML;
-  var res = str.split(",");
+        var selectedSurvey = $('#survey').find(":selected").text();
 
- /* var dropD = document.getElementById("survey");
-  var length = dropD.options.length;
-  for (i = 0; i <= length; i++) {
-    dropD.options[i] = null;
-  }*/
+        var owners = document.getElementsByClassName(selectedSurvey);
 
-  $("#survey").empty();
-  $('#survey').append( '<option>' + "Select Survey No" + '</option>' );
-  /*var propertiesOwned = $(".propertiesOwned");*/
-  for (var i=0;i<res.length;i++){
-   //  $('<option/>').val(res[i]).html(res[i]).appendTo('#survey');
-     $('#survey').append( '<option>' + res[i] + '</option>' );
-  }
+        var str = owners[0].innerHTML;  // Contains 'Location/Area'
+        var result = str.split("/");
 
-  // Remove buyerName from sellTo list
-  
-/* var owners = $(".ownersBx");  //Get list of owners
-  console.log(owners.length);
-
-  $("#sellTo").empty();
-
-  for (var i=0;i<owners.length;i++){
-     $('#sellTo').append( '<option>' + owners[i].innerHTML + '</option>' );
-  }
-*/
- /* var dropD = document.getElementById("sellTo");
-  dropD.remove(selectedOwner);
-
-  $("#sellTo option[value='"+selectedOwner+"']").remove();*/
-
-/*  var dropD = document.getElementById("sellTo");
-
-  var owners = $(".ownersBx");
-
-  $("#sellTo").empty();
-  console.log(owners.length);
-  for (var i=0;i<owners.length;i++){
-     $('#sellTo').append( '<option>' + owners[i].innerHTML + '</option>' );
-  }
-
-
- // alert(selectedPostion);
-  dropD.remove(selectedPostion);
-*/
-
-
-  /*$.each(propertiesOwned, function (i, propertiesOwned) {
-    $('#mySelect').append($('<option>', { 
-        value: propertiesOwned.value,
-        text : propertiesOwned.text 
-    }));
-  });*/
-
-});
-
-/*$('#sellTo').on('change', function() {
-  
-  alert("Hi");
-  for (var i=0;i<ownersBx.length;i++){
-   //  $('<option/>').val(res[i]).html(res[i]).appendTo('#survey');
-
-     $('#sellTo').append( '<option>' + ownersBx[i] + '</option>' );
-  }
-});
-*/
-$('#survey').on('change', function() {
-
-
-  var selectedPostion = $("#buyFrom").prop('selectedIndex');
-  var selectedOwner = $('#buyFrom').find(":selected").text();
- // console.log("Selected Owner= " + selectedOwner +" Selected Position " + selectedPostion);
-  // References to textFields
-  var areaField = document.getElementById("areaField");
-  var addressField = document.getElementById("addressField");
-
-  
-  var selectedPostion = $("#survey").prop('selectedIndex');
-  var selectedSurvey = $('#survey').find(":selected").text();
-  console.log(selectedSurvey);
- // console.log(selectedSurvey);
-
-  var owners = document.getElementsByClassName(selectedSurvey);
-  var str= owners[0].innerHTML;
-  var result = str.split("/");
-
-  areaField.value = result[0];
-  addressField.value = result[1];
-
-});
-
-
-
-
-
+        areaField.value = result[0];
+        addressField.value = result[1];
+    });
 });

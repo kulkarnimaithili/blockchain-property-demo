@@ -25,15 +25,15 @@
     },
     {
         "surveyNo": "13",
-        "location": "Margao",
-        "area": "3131",
+        "location": "Vasco",
+        "area": "0001",
         "allOwners": [
             "Jane Doe"
         ]
     },
     {
         "surveyNo": "14",
-        "location": "Margao",
+        "location": "Lala",
         "area": "3131",
         "allOwners": [
             "Jane Doe"

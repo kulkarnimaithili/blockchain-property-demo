@@ -134,7 +134,7 @@ h3,h4 {
   background-color: #333;
   color: #f1f1f1;
   border-radius: 0;
-  transition: .2s;
+  transition: .2s
 }
 .btn:hover,
 .btn:focus {
@@ -142,18 +142,13 @@ h3,h4 {
   background-color: #fff;
   color: #000;
 }
-.modal-header,
-h4,
-.close {
+h4,.close {
   background-color: #333;
   color: #fff !important;
   text-align: center;
   font-size: 30px;
 }
-.modal-header,
-.modal-body {
-  padding: 40px 50px;
-}
+
 .nav-tabs li a {
   color: #777;
 }
@@ -261,7 +256,7 @@ li {
   position: absolute;
   left: 25%;
 }
-#b1 {
+#buyButton {
   position: absolute;
   margin-left: 10em;
   margin-top: 12em;
