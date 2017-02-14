@@ -1,6 +1,5 @@
-// ==================================
-// Part 1 - incoming messages, look for type
-// ==================================
+'use strict';
+
 var ibc = {};
 var chaincode = {};
 var async = require('async');
@@ -27,32 +26,76 @@ module.exports.myProcessMsg = function(data, callback){
       }); 
     }
   }
-  else if(data.type == 'get'){  // get by key
-    console.log("its a get");
-    chaincode.query.read([data.key], (err, index) => {
-      if (err) {
-        callback(err, null);
-      } else {
-        callback(null, index);
-      }
-    }); 
-  }
   else if(data.type == 'transfer'){
     console.log('transfering msg');
     if(data.name && data.user){
       chaincode.invoke.set_owner([data.name, data.user]);
     }
   }
-  else if(data.type == 'remove'){
-    console.log('removing msg');
-    if(data.name){
-      chaincode.invoke.delete([data.name]);
-    }
-  }
   else if(data.type == 'chainstats'){
     console.log('chainstats msg');
-    ibc.chain_stats(cb_chainstats);
+    ibc.chain_stats(myCbStats);
   }
+
+
+  function myCbStats(err, chainStats) {
+    if (err) {
+      return callback(err, null);
+    }
+
+    let blockCount = chainStats.height - 1;
+    let blockChain = {};
+
+    /*for (let i = blockCount; i > 0; i--) {  // skip genesis block
+      let block = {};
+
+      // take only last 10 blocks
+      if (blockChain.length > 9) {
+        break;
+      }
+
+      ibc.block_stats(i, (e, stats) => {
+        if (e) {
+          return callback(e, null);
+        }
+        // block = stats.transactions[0];
+        blockChain.push(stats);
+        console.log("\n\n\n\n----------------------------------------------------------------------------------------------------\n");
+        console.log(blockChain.length);
+        console.log("\n-------------------------------------------------------------------------------------------------------------\n\n\n\n");
+      });
+    }
+
+
+    console.log("\n\n\n\n ---------");
+    console.log(blockChain);
+    console.log("\n\n\n\n ---------");
+    // blockChain.reverse();
+    return callback(null, {"Size": blockChain.length});*/
+
+
+
+    // let count = 0;
+
+
+    // async.eachLimit(blockChain, 1, (blockCount, cb) => {           //iter through each one, and send it
+    //   if (count++ < 10) {
+    //     ibc.block_stats(blockCount, (e, stats) => {
+    //       if(e == null){
+    //         blockChain.push(stats);
+    //       }
+    //       cb(null);
+    //     });
+    //   }
+    // }, () => {
+    //   setTimeout(() => {
+    //     return callback(null, {"blockChain": blockChain.length });
+    //   }, 1000);
+    // });
+
+
+  }
+
   
   //call back for getting the blockchain stats, lets get the block stats now
   function cb_chainstats(e, chain_stats){

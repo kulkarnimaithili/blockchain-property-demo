@@ -16,8 +16,26 @@ const config = require('../config/');
 const owners = config.getOwners();
 const surveys = config.getSurveys();
 
+const propertiesGo = require('../utils/ws_part1');
+
 router.route('/').get(function(req, res){
   res.render('home', {title: 'Home'});
+});
+
+router.route('/blockview').get(function(req, res){
+	const data = {
+    "type": "chainstats"
+  };
+
+  propertiesGo.myProcessMsg(data, (err, blockChain) => {
+    if (err) {
+      console.log(err);
+      return res.status(500).end("Something went wrong. Check console");
+    }
+    res.json(blockChain);
+    // return res.status(200).render('blockview', {title: 'Blockview', blockChain });
+  });
+  
 });
 
 router.route('/registration').get(function(req, res){

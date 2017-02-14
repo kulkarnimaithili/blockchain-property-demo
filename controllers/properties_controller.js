@@ -6,24 +6,6 @@ const config = require('../config/');
 const owners = config.getOwners();
 const surveys = config.getSurveys();
 
-// GET /properties/:id
-module.exports.getPropertyByID = (req, res) => {
-  const id = req.params.id.toString().trim();
-  
-  const data = {
-    "type": "get",
-    "key": id
-  };
-
-  propertiesGo.myProcessMsg(data, (err, response) => {
-    if (err) {
-      console.log(err);
-      return res.status(500).end("Something went wrong. Check console");
-    }
-    return res.json(response);
-  });
-};
-
 // POST /properties
 module.exports.createProperty = (req, res) => {
 
