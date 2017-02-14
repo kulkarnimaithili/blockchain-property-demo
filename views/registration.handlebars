@@ -7,23 +7,19 @@
       <label for="usr">Name: </label><br>
       <select name="ownerName" id="ownerName" value="--Select Name--" style="width:434px;">
         <option value="" >Select your Name </option>
-        <option value="Amol Pednekar">Amol Pednekar</option>
-        <option value="Riya Borkar">Riya Borkar</option>
-        <option value="Aaron Colaco">Aaron Colaco</option>
-        <option value="Shantanu Kulkarni">Shantanu Kulkarni</option>
-        <option value="Saideep Bhosle">Saideep Bhosle</option>
-        <option value="Rishab Bandekar">Rishab Bandekar</option>
-        <option value="Vivek Kumar">Vivek Kumar</option>
+        {{#each owners}}
+          <option value={{this.name}}>{{this.name}}</option>
+        {{/each}}
       </select>
     </div>
     <div class="col-sm-6 form-group">
       <label for="usr1">Survey No:</label>
-      <input type="text" class="form-control" id="survey" name="survey" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  maxlength="12" minlength=12>
+      <input type="text" class="form-control" id="survey" name="survey" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  maxlength="5" minlength="1">
     </div>
     <br><br>
     <div class="col-sm-6 form-group">
       <label for="usr">Aadhar Card No:</label>
-      <input type="text" class="form-control" id="aadhar" name="aadhar" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  maxlength="12" minlength=12>
+      <input type="text" class="form-control" id="aadhar" name="aadhar" onkeypress='return event.charCode >= 48 && event.charCode <= 57'  maxlength="12" minlength="12">
     </div>
     <div class="col-sm-6 form-group">
       <label for="usr">Area:</label>
