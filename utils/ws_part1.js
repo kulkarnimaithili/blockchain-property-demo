@@ -41,60 +41,25 @@ module.exports.myProcessMsg = function(data, callback) {
       return callback(err, null);
     }
 
-    let blockCount = chainStats.height - 1;
-    let blockChain = [];
+    let chainHeight = chainStats.height - 1;
+    let blockChainArr = [];  // array of blocks to return
+    const returnBlockCount = 10;  // no of blocks to return
 
-    for (let i = blockCount; i > (blockCount - 10); i--) { // skip genesis block
-      // Start fetching block stats
-      ibc.block_stats(i, (e, stats) => {
+    for (let index = chainHeight; index > (chainHeight - returnBlockCount); index--) { 
+     
+      // fetch block stats by index
+      ibc.block_stats(index, (e, stats) => {
         if (e) {
           return callback(e, null);
         }
-        blockChain.push(stats);
-        if (blockChain.length == 10) {
-          return callback(null, blockChain);
+
+        blockChainArr.push(stats);
+
+        if (blockChainArr.length >= returnBlockCount) {
+          blockChainArr.reverse();  // since it started adding from the last block. we need the last block to be last
+          return callback(null, blockChainArr);
         }
       });
-    }
-
-  }
-
-
-  //call back for getting the blockchain stats, lets get the block stats now
-  function cb_chainstats(e, chain_stats) {
-    if (chain_stats && chain_stats.height) {
-      chain_stats.height = chain_stats.height - 1; //its 1 higher than actual height
-      var list = [];
-      for (var i = chain_stats.height; i >= 1; i--) { //create a list of heights we need
-        list.push(i);
-        if (list.length >= 8) break;
-      }
-      list.reverse(); //flip it so order is correct in UI
-      async.eachLimit(list, 1, function(block_height, cb) { //iter through each one, and send it
-        ibc.block_stats(block_height, function(e, stats) {
-          if (e == null) {
-            stats.height = block_height;
-            sendMsg({
-              msg: 'chainstats',
-              e: e,
-              chainstats: chain_stats,
-              blockstats: stats
-            });
-          }
-          cb(null);
-        });
-      }, function() {});
-    }
-  }
-
-  //send a message, socket might be closed...
-  function sendMsg(json) {
-    if (ws) {
-      try {
-        ws.send(JSON.stringify(json));
-      } catch (e) {
-        console.log('[ws error] could not send msg', e);
-      }
     }
   }
 };
