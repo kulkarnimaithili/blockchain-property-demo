@@ -1,8 +1,170 @@
 [
-	{
-		"surveyNo": "10",
-		"location": "Margao",
-		"area": "3131",
-		"allOwners": ["John Doe"]
-	}
+    {
+        "surveyNo": "10",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "John Doe"
+        ]
+    },
+    {
+        "surveyNo": "11",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "John Doe"
+        ]
+    },
+    {
+        "surveyNo": "12",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "John Doe"
+        ]
+    },
+    {
+        "surveyNo": "13",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Jane Doe"
+        ]
+    },
+    {
+        "surveyNo": "14",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Jane Doe"
+        ]
+    },
+    {
+        "surveyNo": "15",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Jane Doe"
+        ]
+    },
+    {
+        "surveyNo": "16",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "John Smith"
+        ]
+    },
+    {
+        "surveyNo": "17",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "John Smith"
+        ]
+    },
+    {
+        "surveyNo": "19",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Candice Swanepoel"
+        ]
+    },
+    {
+        "surveyNo": "20",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Candice Swanepoel"
+        ]
+    },
+    {
+        "surveyNo": "21",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Candice Swanepoel"
+        ]
+    },
+    {
+        "surveyNo": "18",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Behati Prinsloo"
+        ]
+    },
+    {
+        "surveyNo": "22",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Julia Andrews"
+        ]
+    },
+    {
+        "surveyNo": "23",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Julia Andrews"
+        ]
+    },
+    {
+        "surveyNo": "24",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Julia Andrews"
+        ]
+    },
+    {
+        "surveyNo": "25",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Mark Ruffalo"
+        ]
+    },
+    {
+        "surveyNo": "26",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Mark Ruffalo"
+        ]
+    },
+    {
+        "surveyNo": "27",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Mark Ruffalo"
+        ]
+    },
+    {
+        "surveyNo": "28",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Bruce Wayne"
+        ]
+    },
+    {
+        "surveyNo": "29",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Bruce Wayne"
+        ]
+    },
+    {
+        "surveyNo": "30",
+        "location": "Margao",
+        "area": "3131",
+        "allOwners": [
+            "Bruce Wayne"
+        ]
+    }
 ]
