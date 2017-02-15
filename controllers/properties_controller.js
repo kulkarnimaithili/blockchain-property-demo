@@ -2,10 +2,6 @@
 
 const propertiesGo = require('../utils/ws_part1');
 
-const config = require('../config/');
-const owners = config.getOwners();
-const surveys = config.getSurveys();
-
 // POST /properties
 module.exports.createProperty = (req, res) => {
 
@@ -30,3 +26,4 @@ module.exports.createProperty = (req, res) => {
     return res.status(201).json(response);
   });
 };
+

@@ -85,7 +85,7 @@ app.use(function(req, res, next){
 
 //// Router ////
 app.use('/', require('./routes/site_router'));
-app.use('/api/properties', require('./routes/property_router'));
+app.use('/api', require('./routes/api_router'));
 
 ////////////////////////////////////////////
 ////////////// Error Handling //////////////
