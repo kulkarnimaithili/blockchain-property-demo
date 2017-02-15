@@ -102,7 +102,7 @@ $(document).ready(function() {
         var str = owners[0].innerHTML;  // Contains 'Location/Area'
         var result = str.split("/");
 
-        areaField.value = result[0];
-        addressField.value = result[1];
+        areaField.value = result[1];
+        addressField.value = result[0];
     });
 });

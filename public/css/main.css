@@ -71,7 +71,6 @@ h3,h4 {
 #jumboHeader{
   text-align: center;
   font-family: 'Russo One', sans-serif;
-
 }
 
 #myCarousel{
@@ -81,14 +80,10 @@ h3,h4 {
   /* -webkit-filter: grayscale(90%);*/
   /* filter: grayscale(90%);*/
   /* make all photos black and white */
-  
   width: 100%;
   /* Set width to 100% */
   margin: auto;
-
-
 }
-
 
 @media (max-width: 600px) {
   .carousel-caption {
@@ -96,6 +91,7 @@ h3,h4 {
   /* Hide the carousel text when the screen is less than 600 pixels wide */
   }
 }
+
 .bg-1 {
   /*sales page text*/
   
@@ -198,7 +194,6 @@ h2 {
 }
 footer {
   /*background-color: #2d2d30;*/ /*Black/Dark Grey*/
-
   background-color: rgb(0,87,231);
   color: #f5f5f5;
   padding: 32px;
@@ -249,13 +244,14 @@ li {
   margin: 10px 10px 10px 10px;
 }
 #register {
+  position: relative;
   height: 100%;
   color: black;
   background-color: #ffffff;
   width: 100%;
 }
 #registerButton {
-  margin-top: -50px;
+  margin-top: 0px;
   background-color: rgb(0,87,231);
 }
 #submitButton {
@@ -285,4 +281,9 @@ hr {
 }
 #sales {
   background: #ffffff;
+}
+
+#blockDetails{
+  position: relative;
+  margin-top: 25em;
 }
