@@ -108,13 +108,6 @@ func (t *SimpleChaincode) initProperty(stub shim.ChaincodeStubInterface, args []
 		owner.SurveyNos = append(retrieveSurveyNos.SurveyNos, surveyNumber)
 	}
 
-	// Marshalling the owner object
-	bytes, _ := json.Marshal(owner)
-	err = stub.PutState(ownerName, bytes)
-	if err != nil {
-		return nil, errors.New("Putstate failed")
-	}
-
 	// Get the survey state from blockchain network
 	surveyAsBytes, _ := stub.GetState(args[2])
 
@@ -128,9 +121,14 @@ func (t *SimpleChaincode) initProperty(stub shim.ChaincodeStubInterface, args []
 		survey.Area, _ = strconv.ParseInt(args[4], 10, 64)
 		survey.Owners = append(survey.Owners, ownerName)
 	} else {
-		survey.Location = retrieveSurvey.Location
-		survey.Area = retrieveSurvey.Area
-		survey.Owners = append(retrieveSurvey.Owners, ownerName)
+		return nil, errors.New("Property already exists")
+	}
+
+	// Marshalling the owner object
+	bytes, _ := json.Marshal(owner)
+	err = stub.PutState(ownerName, bytes)
+	if err != nil {
+		return nil, errors.New("Putstate failed")
 	}
 
 	// Marshalling the survey object
