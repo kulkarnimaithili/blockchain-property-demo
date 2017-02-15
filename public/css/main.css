@@ -21,7 +21,10 @@ h3,h4 {
   height: 100%;
 }
 .container {
-  padding: 80px 120px;
+  padding-top: 60px;
+  padding-left: 100px;
+  padding-right: 100px;
+  padding-bottom: 0px;
 }
 .form-group {
   text-align: left
@@ -208,6 +211,10 @@ footer a:hover {
 .form-control {
   border-radius: 0;
 }
+
+#form-register{
+  height: 80%;
+}
 textarea {
   resize: none;
 }
@@ -285,5 +292,6 @@ hr {
 
 #blockDetails{
   position: relative;
-  margin-top: 30em;
+  
+  height: auto;
 }
