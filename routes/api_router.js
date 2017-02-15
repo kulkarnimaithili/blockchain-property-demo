@@ -10,5 +10,6 @@ const propertyController = require('../controllers/properties_controller');
 */
 
 router.post('/properties', propertyController.createProperty);
+router.post('/properties/transfer', propertyController.transferProperty);
 
 module.exports = router;

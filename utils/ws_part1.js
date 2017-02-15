@@ -27,8 +27,8 @@ module.exports.myProcessMsg = function(data, callback) {
     }
   } else if (data.type == 'transfer') {
     console.log('transfering msg');
-    if (data.name && data.user) {
-      chaincode.invoke.set_owner([data.name, data.user]);
+    if (data.buyer && data.seller && data.surveyNo) {
+      chaincode.invoke.transfer([data.buyer, data.seller, data.surveyNo]);
     }
   } else if (data.type == 'chainstats') {
     console.log('chainstats msg');
