@@ -273,7 +273,7 @@ li {
 #registerButton {
   position: absolute;
   left: 47%;
-  top: 77%;
+  top: 65%;
 }
 hr {
   height: 1px;
@@ -285,5 +285,5 @@ hr {
 
 #blockDetails{
   position: relative;
-  margin-top: 25em;
+  margin-top: 30em;
 }
