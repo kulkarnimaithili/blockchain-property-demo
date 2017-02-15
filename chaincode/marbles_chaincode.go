@@ -13,6 +13,10 @@ import (
 type SimpleChaincode struct {
 }
 
+// For keeping track of all users and survey numbers
+var ownerIndexStr = "_ownerIndex"
+var surveyIndexStr = "_surveyIndex"
+
 // Owner struct stores owner specific details
 type Owner struct {
 	Aadhar    int64   `json:"aadhar"`
@@ -45,6 +49,21 @@ func (t *SimpleChaincode) Init(stub shim.ChaincodeStubInterface, function string
 	err = stub.PutState("abc", []byte(strconv.Itoa(Aval))) //making a test var "abc", I find it handy to read/write to it right away to test the network
 	if err != nil {
 		return nil, err
+	}
+
+	// Initialize owner and survey index
+	var empty []string
+	jsonAsBytes, _ := json.Marshal(empty) //marshal an emtpy array of strings to clear the index
+	err = stub.PutState(ownerIndexStr, jsonAsBytes)
+	if err != nil {
+		return nil, errors.New("Error initializing owner index")
+	}
+
+	var emptySurvey []int64
+	jsonAsBytes, _ = json.Marshal(emptySurvey) //marshal an emtpy array of int64 to clear the index
+	err = stub.PutState(surveyIndexStr, jsonAsBytes)
+	if err != nil {
+		return nil, errors.New("Error initializing survey index")
 	}
 
 	return nil, nil
@@ -131,9 +150,31 @@ func (t *SimpleChaincode) initProperty(stub shim.ChaincodeStubInterface, args []
 		return nil, errors.New("Putstate failed")
 	}
 
+	// Adding owner to ownerIndex
+	ownerIndexAsBytes, _ := stub.GetState(ownerIndexStr)
+	var ownerIndex []string
+	json.Unmarshal(ownerIndexAsBytes, &ownerIndex)
+	ownerIndex = append(ownerIndex, ownerName)
+	bytesOwnerIndex, _ := json.Marshal(ownerIndex)
+	err = stub.PutState(ownerIndexStr, bytesOwnerIndex)
+	if err != nil {
+		return nil, errors.New("Putstate failed")
+	}
+
 	// Marshalling the survey object
 	bytesSurvey, _ := json.Marshal(survey)
 	err = stub.PutState(args[2], bytesSurvey)
+	if err != nil {
+		return nil, errors.New("Putstate failed")
+	}
+
+	// Adding survey to surveyIndex
+	surveyIndexAsBytes, _ := stub.GetState(surveyIndexStr)
+	var surveyIndex []int64
+	json.Unmarshal(surveyIndexAsBytes, &surveyIndex)
+	surveyIndex = append(surveyIndex, surveyNumber)
+	bytesSurveyIndex, _ := json.Marshal(surveyIndex)
+	err = stub.PutState(surveyIndexStr, bytesSurveyIndex)
 	if err != nil {
 		return nil, errors.New("Putstate failed")
 	}
