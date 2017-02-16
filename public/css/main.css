@@ -39,14 +39,7 @@ h3, h4 {
     display: none;  /* Hide the carousel text when the screen is less than 600 pixels wide */
   }
 }
-.bg-1 {
 
-  /*sales page text*/
-
-  background: #2d2d30;
-  color: #000000;
-  height: 100%;
-}
 .block .img-responsive {
   margin: 0 auto;
 }
@@ -188,6 +181,7 @@ select {
 }
 .main-title{
   border-bottom: 1px solid #000;
+  margin-bottom: 3em;
   display: inline-block;
   margin-left: 35%;
 }
