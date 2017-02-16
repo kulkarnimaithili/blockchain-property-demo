@@ -17,26 +17,34 @@ module.exports.myProcessMsg = function(data, callback) {
     const property = data.property;
 
     if (property.owner && property.aadhar && property.area && property.location && property.survey) {
-      chaincode.invoke.initProperty([property.owner, property.aadhar, property.survey, property.location, property.area], (err, response) => {
-        if (err) {
-          callback(err, null);
-        } else {
-          callback(null, response);
-        }
-      });
+      chaincode.invoke.initProperty([property.owner, property.aadhar, property.survey, property.location, property.area], callback);
     }
   } else if (data.type == 'transfer') {
     console.log('transfering msg');
-    if (data.buyer && data.seller && data.surveyNo) {
-      chaincode.invoke.transfer([data.buyer, data.seller, data.surveyNo]);
+
+    const transferData = data.transferData;
+    
+    if (transferData.seller && transferData.surveyNo && transferData.buyer) {
+      chaincode.invoke.transfer([transferData.seller, transferData.surveyNo, transferData.buyer], callback);
+    } else {
+      return callback("Arguments don't exist", null)
     }
+
   } else if (data.type == 'chainstats') {
     console.log('chainstats msg');
-    ibc.chain_stats(myCbStats);
+    ibc.chain_stats(cbStats);
+  } else if (data.type == 'getAllOwners') {
+    console.log('getAllOwners');
+    chaincode.query.readOwnerIndex([], callback);
+
+  } else if (data.type == 'getAllSurveys') {
+    console.log('getAllSurveys');
+    chaincode.query.readSurveyIndex([], callback);
+
   }
 
 
-  function myCbStats(err, chainStats) {
+  function cbStats(err, chainStats) {
     if (err) {
       return callback(err, null);
     }

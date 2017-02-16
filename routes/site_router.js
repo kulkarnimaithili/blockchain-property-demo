@@ -18,11 +18,11 @@ const surveys = config.getSurveys();
 
 const propertiesGo = require('../utils/ws_part1');
 
-router.route('/').get(function(req, res){
+router.get('/', function(req, res){
   res.render('home', {title: 'Home'});
 });
 
-router.route('/blockview').get(function(req, res){
+router.get('/blockview', function(req, res){
 	const data = {
     "type": "chainstats"
   };
@@ -38,11 +38,26 @@ router.route('/blockview').get(function(req, res){
   
 });
 
-router.route('/registration').get(function(req, res){
-  res.render('registration', {title: 'Register Property', owners });
+router.get('/registration', function(req, res){
+  const data = {
+    "type": "getAllOwners"
+  };
+
+  /*propertiesGo.myProcessMsg(data, (err, allOwners) => {
+    if(err) {
+      console.log(err);
+      return res.status(500).end("Something went wrong. Check console");
+    }
+    res.render('registration', { title: 'Register Property', allOwners });
+  });*/
+  res.render('registration', { title: 'Register Property', owners });
+  
 });
 
-router.route('/sale').get(function(req, res){
+router.get('/sale', function(req, res){
+  const data = {
+    "type": "getAllSurveys"
+  };
   res.render('sales', {title: 'Sell Property', owners, surveys });
 });
 
