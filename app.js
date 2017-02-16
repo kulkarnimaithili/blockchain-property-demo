@@ -86,6 +86,7 @@ app.use(function(req, res, next){
 //// Router ////
 app.use('/', require('./routes/site_router'));
 app.use('/api', require('./routes/api_router'));
+app.use('/seed', require('./routes/seed'));
 
 ////////////////////////////////////////////
 ////////////// Error Handling //////////////

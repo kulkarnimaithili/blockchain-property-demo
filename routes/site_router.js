@@ -1,5 +1,5 @@
 'use strict';
-/* global process */
+
 /*******************************************************************************
  * Copyright (c) 2015 IBM Corp.
  *
@@ -8,6 +8,8 @@
  * Contributors:
  *   David Huffman - Initial implementation
  *******************************************************************************/
+
+
 const express = require('express');
 const router = express.Router();
 const setup = require('../setup.js');
@@ -47,6 +49,7 @@ router.get('/registration', function(req, res){
       console.log(err);
       return res.status(500).end("Something went wrong. Check console");
     }
+    return res.json(owners);
     res.render('registration', { title: 'Register Property', owners });
   });
 });
