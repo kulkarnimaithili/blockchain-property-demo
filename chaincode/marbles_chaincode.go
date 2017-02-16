@@ -26,7 +26,7 @@ type Owner struct {
 
 // Survey struct stores property specific details
 type Survey struct {
-	SurveyNo   int    `json:"surveyNo"`
+	SurveyNo int64    `json:"surveyNo"`
 	Area     int64    `json:"area"`
 	Location string   `json:"location"`
 	Owners   []string `json:"owners"`
