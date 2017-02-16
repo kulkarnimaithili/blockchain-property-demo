@@ -32,7 +32,6 @@ router.get('/blockview', function(req, res){
       console.log(err);
       return res.status(500).end("Something went wrong. Check console");
     }
-    // res.json(blockChain);
     return res.render('blockview', { "blockChain": JSON.stringify(blockChain) });
   });
   
