@@ -2,7 +2,6 @@
 
 var ibc = {};
 var chaincode = {};
-var async = require('async');
 
 module.exports.setup = function(sdk, cc) {
   ibc = sdk;
@@ -33,6 +32,7 @@ module.exports.myProcessMsg = function(data, callback) {
   } else if (data.type == 'chainstats') {
     console.log('chainstats msg');
     ibc.chain_stats(cbStats);
+
   } else if (data.type == 'getAllOwners') {
     console.log('getAllOwners');
     chaincode.query.readOwnerIndex([], callback);
