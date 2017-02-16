@@ -3,7 +3,7 @@
         "surveyNo": "10",
         "location": "Panjim",
         "area": "3135",
-        "allOwners": [
+        "owners": [
             "John Doe"
         ]
     },
@@ -11,7 +11,7 @@
         "surveyNo": "11",
         "location": "Siolim",
         "area": "3132",
-        "allOwners": [
+        "owners": [
             "John Doe"
         ]
     },
@@ -19,7 +19,7 @@
         "surveyNo": "12",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "John Doe"
         ]
     },
@@ -27,7 +27,7 @@
         "surveyNo": "13",
         "location": "Vasco",
         "area": "0001",
-        "allOwners": [
+        "owners": [
             "Jane Doe"
         ]
     },
@@ -35,7 +35,7 @@
         "surveyNo": "14",
         "location": "Lala",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "Jane Doe"
         ]
     },
@@ -43,7 +43,7 @@
         "surveyNo": "15",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "Jane Doe"
         ]
     },
@@ -51,7 +51,7 @@
         "surveyNo": "16",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "John Smith"
         ]
     },
@@ -59,7 +59,7 @@
         "surveyNo": "17",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "John Smith"
         ]
     },
@@ -67,7 +67,7 @@
         "surveyNo": "19",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "Candice Swanepoel"
         ]
     },
@@ -75,7 +75,7 @@
         "surveyNo": "20",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "Candice Swanepoel"
         ]
     },
@@ -83,7 +83,7 @@
         "surveyNo": "21",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "Candice Swanepoel"
         ]
     },
@@ -91,7 +91,7 @@
         "surveyNo": "18",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "Behati Prinsloo"
         ]
     },
@@ -99,7 +99,7 @@
         "surveyNo": "22",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "Julia Andrews"
         ]
     },
@@ -107,7 +107,7 @@
         "surveyNo": "23",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "Julia Andrews"
         ]
     },
@@ -115,7 +115,7 @@
         "surveyNo": "24",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "Julia Andrews"
         ]
     },
@@ -123,7 +123,7 @@
         "surveyNo": "25",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "Mark Ruffalo"
         ]
     },
@@ -131,7 +131,7 @@
         "surveyNo": "26",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "Mark Ruffalo"
         ]
     },
@@ -139,7 +139,7 @@
         "surveyNo": "27",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "Mark Ruffalo"
         ]
     },
@@ -147,7 +147,7 @@
         "surveyNo": "28",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "Bruce Wayne"
         ]
     },
@@ -155,7 +155,7 @@
         "surveyNo": "29",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "Bruce Wayne"
         ]
     },
@@ -163,7 +163,7 @@
         "surveyNo": "30",
         "location": "Margao",
         "area": "3131",
-        "allOwners": [
+        "owners": [
             "Bruce Wayne"
         ]
     }
