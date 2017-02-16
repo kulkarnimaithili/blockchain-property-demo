@@ -32,14 +32,14 @@
 
 #homeButton1 {
     position: absolute;
-    top: 53%;
+    top: 55%;
     left: 22%;
     opacity: 0.8;
     z-index: 2;
 }
 #homeButton2 {
     position: absolute;
-    top: 53%;
+    top: 55%;
     right: 22%;
     opacity: 0.8;
     z-index: 2;

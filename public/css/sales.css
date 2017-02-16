@@ -16,8 +16,12 @@
     margin-top: 2em;
 }
 hr {
+ 
+    border: none;
     height: 1px;
-    color: #f442d1;
+    /* Set the hr color */
+    color: #333; /* old IE */
+    background-color: #333; /* Modern Browsers */
 }
 #sales {
     background: #fff;
