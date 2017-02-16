@@ -64,7 +64,7 @@ router.get('/sale', function(req, res){
     }
 
     data = {
-      "type": "allSurveys"
+      "type": "getAllSurveys"
     };
 
     // get all surveys
