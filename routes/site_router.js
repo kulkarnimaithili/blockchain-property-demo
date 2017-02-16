@@ -42,12 +42,12 @@ router.get('/registration', function(req, res){
     "type": "getAllOwners"
   };
 
-  propertiesGo.myProcessMsg(data, (err, allOwners) => {
+  propertiesGo.myProcessMsg(data, (err, owners) => {
     if(err) {
       console.log(err);
       return res.status(500).end("Something went wrong. Check console");
     }
-    res.render('registration', { title: 'Register Property', allOwners });
+    res.render('registration', { title: 'Register Property', owners });
   });
 });
 
@@ -57,7 +57,7 @@ router.get('/sale', function(req, res){
   };
 
   // get all owners
-  propertiesGo.myProcessMsg(data, (err, allOwners) => {
+  propertiesGo.myProcessMsg(data, (err, owners) => {
     if(err) {
       console.log(err);
       return res.status(500).end("Something went wrong while getting owners. Check console");
@@ -68,12 +68,12 @@ router.get('/sale', function(req, res){
     };
 
     // get all surveys
-    propertiesGo.myProcessMsg(data, (err, allSurveys) => {
+    propertiesGo.myProcessMsg(data, (err, surveys) => {
       if(err) {
         console.log(err);
         return res.status(500).end("Something went wrong while getting surveys. Check console");
       }
-      res.render('sales', { title: 'Sell Property', "owners": allOwners, "surveys": allSurveys });
+      res.render('sales', { title: 'Sell Property', owners, surveys });
     });
   });
 });
