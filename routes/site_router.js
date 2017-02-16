@@ -49,6 +49,7 @@ router.get('/registration', function(req, res){
       console.log(err);
       return res.status(500).end("Something went wrong. Check console");
     }
+    owners = JSON.parse(owners);
     res.render('registration', { title: 'Register Property', owners });
   });
 });
@@ -65,6 +66,8 @@ router.get('/sale', function(req, res){
       return res.status(500).end("Something went wrong while getting owners. Check console");
     }
 
+    owners = JSON.parse(owners);
+
     data = {
       "type": "getAllSurveys"
     };
@@ -75,6 +78,8 @@ router.get('/sale', function(req, res){
         console.log(err);
         return res.status(500).end("Something went wrong while getting surveys. Check console");
       }
+
+      surveys = JSON.parse(surveys);
       res.render('sales', { title: 'Sell Property', owners, surveys });
     });
   });
