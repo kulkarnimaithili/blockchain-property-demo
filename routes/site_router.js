@@ -49,7 +49,6 @@ router.get('/registration', function(req, res){
       console.log(err);
       return res.status(500).end("Something went wrong. Check console");
     }
-    return res.json(owners);
     res.render('registration', { title: 'Register Property', owners });
   });
 });
