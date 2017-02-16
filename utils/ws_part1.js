@@ -53,7 +53,19 @@ module.exports.myProcessMsg = function(data, callback) {
     let blockChainArr = [];  // array of blocks to return
     const returnBlockCount = 10;  // no of blocks to return
 
-    for (let index = chainHeight; index > (chainHeight - returnBlockCount); index--) { 
+    console.log("\n\n-----------");
+    console.log(chainHeight)
+    console.log("-----------\n\n");
+
+    if (isNaN(chainHeight) || chainHeight < 2) {
+      return callback(null, {"message": "No blocks"});
+    }
+
+    for (let index = chainHeight; index > (chainHeight - returnBlockCount); index--) {
+
+      if (index < 1) {
+        return callback(null, blockChainArr);
+      } 
      
       // fetch block stats by index
       ibc.block_stats(index, (e, stats) => {
