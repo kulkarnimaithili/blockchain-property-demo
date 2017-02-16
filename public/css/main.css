@@ -1,16 +1,18 @@
 html {
+  min-height: 100%;
   width: 100%;
   height: 100%;
 }
 body {
   font: 400 15px/1.8 Lato, sans-serif;
   color: #777;
+  min-height: 100%;
   width: 100%;
   height: 100%;
 }
 h3, h4 {
   margin: 10px 0 30px 0;
-  letter-spacing: 10px;
+  letter-spacing: 5px;
   font-size: 20px;
   color: #111;
 }
@@ -31,62 +33,7 @@ h3, h4 {
   left: -40px;
   right: -40px;
 }
-.person {
-  border: 10px solid transparent;
-  margin-bottom: 25px;
-  width: 80%;
-  height: 80%;
-  opacity: 0.7;
-}
-.person:hover {
-  border-color: #f1f1f1;
-}
-.image-set {
-  width: 100%;
-  height: 100%;
-}
-.jumbotron {
-  margin-top: 20px;
-  z-index: 100;
-  position: absolute;
-  color: rgb(0, 87, 231);
-  font-size: 24px;
-  font-weight: bold;
-  left: 13em;
-  top: 50px;
-  align-content: center;
-  background-color: rgb(230, 230, 230);
-  opacity: 0.65;
-  background-size: cover;
-  padding: 10px;
-}
-#jbText {
-  font-weight: bold;
-  margin-left: auto;
-  font-family: Verdana, sans-serif;
-}
-#jumboHeader {
-  text-align: center;
-  font-family: 'Russo One', sans-serif;
-}
-#myCarousel {
-  height: 100%;
-}
-.carousel-inner {
 
-  /* -webkit-filter: grayscale(90%);*/
-
-  /* filter: grayscale(90%);*/
-
-  /* make all photos black and white */
-
-  /*width: 100%;*/
-
-  /*height: 100%;*/
-
-  /* Set width to 100% */
-  margin: 0px;
-}
 @media (max-width:600px) {
   .carousel-caption {
     display: none;  /* Hide the carousel text when the screen is less than 600 pixels wide */
@@ -150,12 +97,6 @@ h4, .close {
 .tab-content p, h2 {
   margin-left: 15px;
 }
-#googleMap {
-  width: 100%;
-  height: 400px;
-  -webkit-filter: grayscale(100%);
-  filter: grayscale(100%);
-}
 .navbar {
   font-family: Montserrat, sans-serif;
   margin-bottom: 0;
@@ -180,22 +121,14 @@ h4, .close {
 .navbar-default .navbar-toggle {
   border-color: transparent;
 }
-.open .dropdown-toggle {
-  color: #fff;
-  background-color: #555 !important;
-}
-.dropdown-menu li a {
-  color: #000 !important;
-}
-.dropdown-menu li a:hover {
-  background-color: red !important;
-}
-footer {
 
+footer {
   /*background-color: #2d2d30;*/ /*Black/Dark Grey*/
   background-color: rgb(0, 87, 231);
   color: #f5f5f5;
-  padding: 32px;
+  padding: 1em;
+  position:relative;
+  
 }
 footer a {
   color: #f5f5f5;
@@ -208,7 +141,7 @@ footer a:hover {
   border-radius: 0;
 }
 #form-register {
-  height: 80%;
+  height: 100%;
 }
 textarea {
   resize: none;
@@ -224,11 +157,7 @@ textarea {
   text-align: center;
   transform: translate(-50%, 0);
 }
-#band {
-  height: 100%;
-}
-#contact {
-}
+
 #contact-us {
   background: #2d2d30;
   color: #bdbdbd;
@@ -249,51 +178,27 @@ select {
 .btn-group {
   margin: 10px 10px 10px 10px;
 }
-#register {
-  position: relative;
-  height: 100%;
-  color: black;
-  background-color: #ffffff;
-  width: 100%;
-}
-#registerButton {
-  margin-top: 0px;
-  background-color: rgb(0, 87, 231);
-}
-#submitButton {
-  margin: 25px;
-  background-color: rgb(0, 87, 231);
-}
-#dropdownname {
-}
-{
-  position: absolute;
-  left: 25%;
-}
-#buyButton {
-  background-color: rgb(0, 87, 231);
-  position: absolute;
-  margin-left: 10em;
-  margin-top: 2em;
-  left: 35%;
-  top: 40%;
-}
-#registerButton {
-  position: absolute;
-  left: 47%;
-  top: 65%;
-}
-hr {
-  height: 1px;
-  color: #f442d1;
-}
-#sales {
-  background: #ffffff;
-}
+
 #blockDetails {
   position: relative;
   height: auto;
 }
 .alert {
   display: none;
+}
+.main-title{
+  border-bottom: 1px solid #000;
+  display: inline-block;
+  margin-left: 35%;
+}
+.btn{
+  background-color: rgb(230, 230, 230);
+  color: rgb(0, 87, 231);
+  width: 11em;
+  text-align: center;
+}
+.btn:hover{
+  background-color:   rgb(192,192,192) ;
+  color: rgb(0, 87, 231);
+  text-decoration: underline;
 }
