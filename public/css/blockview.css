@@ -12,3 +12,11 @@
 .blocks {
   margin-top: 10em
 }
+
+code {
+    display: block;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: transparent;
+    color: #fff;
+}
