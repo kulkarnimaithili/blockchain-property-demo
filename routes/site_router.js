@@ -31,6 +31,10 @@ router.get('/blockview', function(req, res){
     if (err) {
       console.log(err);
       return res.status(500).end("Something went wrong. Check console");
+    } 
+
+    if (blockChain.message == 'No blocks') {
+      return res.status(411).render('blockview', { blockChain });
     }
     return res.render('blockview', { "blockChain": JSON.stringify(blockChain) });
   });
