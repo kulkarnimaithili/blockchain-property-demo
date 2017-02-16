@@ -7,3 +7,5 @@
 .project
 /cc_summaries
 chaincode_details/*.json
+# gets changed every time app is run
+busters_js.json
