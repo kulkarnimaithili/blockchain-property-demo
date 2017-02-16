@@ -1,22 +1,21 @@
 #hidden-data {
-  visibility: hidden
+    visibility: hidden
 }
 .hidden-details {
-  display: none;
-  color: #000
+    display: none;
+    color: #000
 }
 .show_details:hover + .hidden-details {
-  display: block;
-  color: #000
+    display: block;
+    color: #000
 }
 .blocks {
-  margin-top: 10em
+    margin-top: 10em
 }
-.navbar{
-  min-height: 45px;
-  height: 50px;
+.navbar {
+    min-height: 45px;
+    height: 50px;
 }
-
 code {
     display: block;
     white-space: pre-wrap;
