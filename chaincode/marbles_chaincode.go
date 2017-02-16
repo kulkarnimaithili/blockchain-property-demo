@@ -366,10 +366,7 @@ func (t *SimpleChaincode) readOwnerIndex(stub shim.ChaincodeStubInterface, args 
 
 	// Marshalling and appending ''
 	bytes, _ := json.Marshal(owners)
-	a := []byte("'")
-	str := append(a, bytes...)
-	str = append(str, a...)
-	return []byte(str), nil // returns JSON of entire owners on network
+	return []byte(bytes), nil // returns JSON of entire owners on network
 }
 
 // fetch entire details of survey numbers on blockchain network
@@ -391,10 +388,7 @@ func (t *SimpleChaincode) readSurveyIndex(stub shim.ChaincodeStubInterface, args
 
 	// Marshalling and appending ''
 	bytes, _ := json.Marshal(surveys)
-	a := []byte("'")
-	str := append(a, bytes...)
-	str = append(str, a...)
-	return []byte(str), nil // returns JSON of entire survey numbers on network
+	return []byte(bytes), nil // returns JSON of entire survey numbers on network
 }
 
 func main() {

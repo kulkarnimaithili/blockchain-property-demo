@@ -1,7 +1,5 @@
 'use strict';
 
-const _ = require('lodash');
-
 const propertiesGo = require('../utils/ws_part1');
 
 // POST /properties
@@ -31,9 +29,11 @@ module.exports.createProperty = (req, res) => {
 
 module.exports.transferProperty = (req, res) => {
 
-  const allowedFields = ['seller', 'buyer', 'surveryNo'];
-
-  const transferData = _.pick(req.body, allowedFields)
+  const transferData = {
+    "seller": req.body.seller.toString().trim(),
+    "buyer": req.body.buyer.toString().trim(),
+    "surveyNo": req.body.surveyNo.toString().trim()
+  }
 
   const data = {
     "type": "transfer",
