@@ -26,6 +26,7 @@ type Owner struct {
 
 // Survey struct stores property specific details
 type Survey struct {
+	SurveyNo   int    `json:surveyNo`
 	Area     int64    `json:"area"`
 	Location string   `json:"location"`
 	Owners   []string `json:"owners"`
@@ -112,6 +113,7 @@ func (t *SimpleChaincode) initProperty(stub shim.ChaincodeStubInterface, args []
 	owner.Name = ownerName
 	var surveyNumber int64
 	surveyNumber, _ = strconv.ParseInt(args[2], 10, 64)
+	survey.surveyNo = surveyNumber
 
 	// Get owner's state from blockchain network
 	valAsBytes, _ := stub.GetState(args[0])
