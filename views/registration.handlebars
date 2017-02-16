@@ -1,91 +1,58 @@
 <div id="register" class="bg-1">
-    <div class="container">
-    <h3 class="text-center">Register Your Property!</h3>
-
-    <form id="form-register" name="registration">
-        <div id="dropdownname" class="col-sm-6 form-group">
-            <label for="usr">Name: </label>
-            <br>
-            <select name="ownerName" id="ownerName" value="--Select Name--" style="width:434px;">
-                <option value="">Select your Name </option>
-                {{#each owners}}
-                <option value="{{this.name}}">{{this.name}}</option>
-                {{/each}}
-            </select>
-        </div>
-        {{!-- Survey --}}
-        <div class="col-sm-6 form-group">
-            <label for="usr1">Survey No:</label>
-            <input type="text" class="form-control" id="survey" required="required" name="survey" maxlength="5" minlength="1">
-        </div>
-        <br>
-        <br> {{!-- Aadhar --}}
-        <div class="col-sm-6 form-group">
-            <label for="usr">Aadhar Card No:</label>
-            <input type="text" class="form-control" id="aadhar" name="aadhar" disabled="disabled" required="required" >{{!-- onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="12" minlength="12" --}}
-        </div>
-        {{!-- Area --}}
-        <div class="col-sm-6 form-group">
-            <label for="usr">Area (in Sq.ft ):</label>
-            <input type="text" class="form-control" id="area" name="area" required="required" pattern="[0-9]+||[0-9]+(\.[0-9][0-9]?)">
-        </div>
-        {{!-- Location --}}
-        <div class="col-sm-12 form-group">
-            <label for="Location">Location:</label>
-            <textarea class="form-control" rows="5" id="location" required="required" name="location"></textarea>
-        </div>
-        <div class="col-sm-4"></div>
-        <div class="col-sm-3 form-group button-register"> 
-            <button id="registerButton" type="submit" class="btn btn-default" value="submit" >Register</button>
-
-
-        </div>
-        <div class="col-sm-5"></div>
-        <br><br><br><br><br><br><br><br>
-    </form>
-    <br><br><br><br>
-    <div id="blockDetails" class="col-sm-12">
-      
-       {{!--  <pre id="result"></pre> --}}
-     
- {{!--   <div class="alert alert-success alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Success! message sent successfully.
-        </div> --}}
-<br>
-       <div class="alert alert-info alert-dismissable" >
-    <a  id="result" class="close" data-dismiss="alert" aria-label="close">×</a>
-    <strong><center>Congratulations!! Your property has been registered Successfully..</center></strong>
+<div class="container">
+  <h3 class="text-center">Register Your Property!</h3>
+  <form id="form-register" name="registration">
+    <div id="dropdownname" class="col-sm-6 form-group">
+      <label for="usr">Name: </label>
+      <br>
+      <select name="ownerName" id="ownerName" value="--Select Name--" style="width:434px;">
+        <option value="">Select your Name </option>
+        {{#each owners}}
+        <option value="{{this.name}}">{{this.name}}</option>
+        {{/each}}
+      </select>
+    </div>
+    {{!-- Survey --}}
+    <div class="col-sm-6 form-group">
+      <label for="usr1">Survey No:</label>
+      <input type="text" class="form-control" id="survey" required="required" name="survey" maxlength="5" minlength="1">
+    </div>
+    <br>
+    <br> {{!-- Aadhar --}}
+    <div class="col-sm-6 form-group">
+      <label for="usr">Aadhar Card No:</label>
+      <input type="text" class="form-control" id="aadhar" name="aadhar" disabled="disabled" required="required" >{{!-- onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="12" minlength="12" --}}
+    </div>
+    {{!-- Area --}}
+    <div class="col-sm-6 form-group">
+      <label for="usr">Area (in Sq.ft ):</label>
+      <input type="text" class="form-control" id="area" name="area" required="required" pattern="[0-9]+||[0-9]+(\.[0-9][0-9]?)">
+    </div>
+    {{!-- Location --}}
+    <div class="col-sm-12 form-group">
+      <label for="Location">Location:</label>
+      <textarea class="form-control" rows="5" id="location" required="required" name="location"></textarea>
+    </div>
+    <div class="col-sm-4"></div>
+    <div class="col-sm-3 form-group button-register"> 
+      <button id="registerButton" type="submit" class="btn btn-default" value="submit" >Register</button>
+    </div>
+    <div class="col-sm-5"></div>
+    <br><br><br><br><br><br><br><br>
+  </form>
+  <br><br><br><br>
+  <div id="blockDetails" class="col-sm-12">
+    <br>
+    <div class="alert alert-info alert-dismissable" >
+      <a  id="result" class="close" data-dismiss="alert" aria-label="close">×</a>
+      <strong>
+        <center>Congratulations!! Your property has been registered Successfully..</center>
+      </strong>
+    </div>
   </div>
-
-
-
-
-{{!-- 
-  <div class="alert alert-success alert-dismissable">
-            <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Success! message sent successfully.
-        </div> --}}
-   
-
-
-
-   {{!-- <div class="container" style="display:none;" id="myAlert">
-     
-        <div class="alert alert-success alert-dismissable" id="myAlert2">
-            <button value="showAlert" type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
-            Success! message sent successfully.
-        </div>
-
-    </div>
-    </div> --}}
-    </div>
 </div>
-
-
- <div id="hidden-users" style="display:inline;visibility: hidden;">
-   {{#each owners}}
-   {{!-- <p class="ownersBx" style="display:inline">{{this.name}}</p> --}}
-   <p class="aadhar" style="display:inline">{{this.aadhar}}</p>
-   {{/each}}
-</div> 
+<div id="hidden-users" style="display:inline;visibility: hidden;">
+  {{#each owners}}
+  <p class="aadhar" style="display:inline">{{this.aadhar}}</p>
+  {{/each}}
+</div>

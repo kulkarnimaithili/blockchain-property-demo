@@ -1,29 +1,26 @@
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.0/css/materialize.min.css">
 <link rel="stylesheet" type="text/css" href="css/blockview.css"> 
 
-		<div class="blocks">
-      		<!-- <h1>Chain Details</h1> -->
-           		<!-- <button type="button" onclick="loadCards()">Click Me!</button> -->
-              		<p id="mypara"></p>
-              		<div>
-              			<code id="shown-details">
-              			</code>
-              		</div>
-            
-      	</div>
+<div class="blocks">
+  <p id="mypara"></p>
+  <div>
+    <code id="shown-details">
+    </code>
+  </div>
+</div>
 
-		<div id="hidden-data">
-			{{blockChain}}
-		</div>
-		<style>
-			code {
-  				display: block;
-  				white-space: pre-wrap;
-  				word-wrap: break-word;
-  				background-color: transparent;
-  				color: #fff;
-			}
-		</style>
+<div id="hidden-data">
+  {{blockChain}}
+</div>
+<style>
+  code {
+    display: block;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+    background-color: transparent;
+    color: #fff;
+  }
+</style>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>

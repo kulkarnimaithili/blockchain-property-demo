@@ -1,17 +1,14 @@
-#hidden-data{
-	visibility: hidden;
+#hidden-data {
+  visibility: hidden
 }
- 
-.hidden-details{
-	display: none;
-	color: #000;
+.hidden-details {
+  display: none;
+  color: #000
 }
-
-.show_details:hover + .hidden-details{
-	display: block;
-	color: #000;
-} 
-
-.blocks{
-	margin-top: 10em;
+.show_details:hover + .hidden-details {
+  display: block;
+  color: #000
+}
+.blocks {
+  margin-top: 10em
 }

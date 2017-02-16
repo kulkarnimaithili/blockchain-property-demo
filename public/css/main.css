@@ -2,23 +2,21 @@ html {
   width: 100%;
   height: 100%;
 }
-
 body {
   font: 400 15px/1.8 Lato, sans-serif;
   color: #777;
   width: 100%;
   height: 100%;
 }
-
-h3,h4 {
+h3, h4 {
   margin: 10px 0 30px 0;
   letter-spacing: 10px;
   font-size: 20px;
   color: #111;
 }
-#home{
+#home {
   width: 100%
-  height: 100%;
+  height:100%;
 }
 .container {
   padding-top: 60px;
@@ -43,62 +41,61 @@ h3,h4 {
 .person:hover {
   border-color: #f1f1f1;
 }
-
-.image-set{
+.image-set {
   width: 100%;
   height: 100%;
 }
-
-.jumbotron{
+.jumbotron {
   margin-top: 20px;
   z-index: 100;
   position: absolute;
-  color: rgb(0,87,231);
+  color: rgb(0, 87, 231);
   font-size: 24px;
   font-weight: bold;
   left: 13em;
   top: 50px;
   align-content: center;
-  background-color: rgb(230, 230, 230);;
+  background-color: rgb(230, 230, 230);
   opacity: 0.65;
   background-size: cover;
   padding: 10px;
 }
-
-#jbText{
+#jbText {
   font-weight: bold;
   margin-left: auto;
   font-family: Verdana, sans-serif;
 }
-
-#jumboHeader{
+#jumboHeader {
   text-align: center;
   font-family: 'Russo One', sans-serif;
 }
-
-#myCarousel{
+#myCarousel {
   height: 100%;
 }
 .carousel-inner {
+
   /* -webkit-filter: grayscale(90%);*/
+
   /* filter: grayscale(90%);*/
+
   /* make all photos black and white */
+
   /*width: 100%;*/
+
   /*height: 100%;*/
+
   /* Set width to 100% */
   margin: 0px;
 }
-
-@media (max-width: 600px) {
+@media (max-width:600px) {
   .carousel-caption {
-  display: none;
-  /* Hide the carousel text when the screen is less than 600 pixels wide */
+    display: none;  /* Hide the carousel text when the screen is less than 600 pixels wide */
   }
 }
-
 .bg-1 {
+
   /*sales page text*/
-  
+
   background: #2d2d30;
   color: #000000;
   height: 100%;
@@ -136,24 +133,21 @@ h3,h4 {
   border-radius: 0;
   transition: .2s
 }
-.btn:hover,
-.btn:focus {
+.btn:hover, .btn:focus {
   border: 1px solid #333;
   background-color: #fff;
   color: #000;
 }
-h4,.close {
+h4, .close {
   background-color: #333;
   color: #fff !important;
   text-align: center;
   font-size: 30px;
 }
-
 .nav-tabs li a {
   color: #777;
 }
-.tab-content p,
-h2 {
+.tab-content p, h2 {
   margin-left: 15px;
 }
 #googleMap {
@@ -166,14 +160,13 @@ h2 {
   font-family: Montserrat, sans-serif;
   margin-bottom: 0;
   font-weight: bold;
-  background-color: rgb(0,87,231);
+  background-color: rgb(0, 87, 231);
   border: 0;
   font-size: 15px !important;
   letter-spacing: 4px;
   opacity: 0.9;
 }
-.navbar li a,
-.navbar .navbar-brand {
+.navbar li a, .navbar .navbar-brand {
   color: #d5d5d5 !important;
   height: 45px;
 }
@@ -198,8 +191,9 @@ h2 {
   background-color: red !important;
 }
 footer {
+
   /*background-color: #2d2d30;*/ /*Black/Dark Grey*/
-  background-color: rgb(0,87,231);
+  background-color: rgb(0, 87, 231);
   color: #f5f5f5;
   padding: 32px;
 }
@@ -213,14 +207,15 @@ footer a:hover {
 .form-control {
   border-radius: 0;
 }
-
-#form-register{
+#form-register {
   height: 80%;
 }
 textarea {
   resize: none;
 }
-.dropdown {} #user-dropdown {
+.dropdown {
+}
+#user-dropdown {
   align-content: center
 }
 #user-dropdown-menu {
@@ -232,21 +227,23 @@ textarea {
 #band {
   height: 100%;
 }
-#contact {} #contact-us {
+#contact {
+}
+#contact-us {
   background: #2d2d30;
   color: #bdbdbd;
   width: 100%;
 }
 li {
   display: inline-block;
-  margin-left: 50 px;
-  /* This is when the drop down box appears */
-  
+  margin-left: 50 px;  /* This is when the drop down box appears */
   position: relative;
 }
-/*NEW PART*/
 
-.btn-group {} select {
+/*NEW PART*/
+.btn-group {
+}
+select {
   line-height: 2.5em;
 }
 .btn-group {
@@ -261,18 +258,20 @@ li {
 }
 #registerButton {
   margin-top: 0px;
-  background-color: rgb(0,87,231);
+  background-color: rgb(0, 87, 231);
 }
 #submitButton {
   margin: 25px;
-  background-color: rgb(0,87,231);
+  background-color: rgb(0, 87, 231);
 }
-#dropdownname {} {
+#dropdownname {
+}
+{
   position: absolute;
   left: 25%;
 }
 #buyButton {
-  background-color: rgb(0,87,231);
+  background-color: rgb(0, 87, 231);
   position: absolute;
   margin-left: 10em;
   margin-top: 2em;
@@ -291,12 +290,10 @@ hr {
 #sales {
   background: #ffffff;
 }
-
-#blockDetails{
+#blockDetails {
   position: relative;
-  
   height: auto;
 }
-.alert{
-  display:none;
+.alert {
+  display: none;
 }

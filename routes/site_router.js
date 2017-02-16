@@ -8,13 +8,9 @@
  * Contributors:
  *   David Huffman - Initial implementation
  *******************************************************************************/
-var express = require('express');
-var router = express.Router();
-var setup = require('../setup.js');
-
-const config = require('../config/');
-const owners = config.getOwners();
-const surveys = config.getSurveys();
+const express = require('express');
+const router = express.Router();
+const setup = require('../setup.js');
 
 const propertiesGo = require('../utils/ws_part1');
 

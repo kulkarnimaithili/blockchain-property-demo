@@ -38,10 +38,8 @@
       <div class="col-xs-12" size="2">
         <hr>
       </div>
-
       <div class="col-sm-3">
-        </div>           
-
+      </div>
       <div class="col-sm-3 form-group">
         <label for="usr">Buyer: </label>
         <br>
@@ -53,18 +51,17 @@
         </select>
       </div>
       <div class="col-sm-3 form-group button-register"> 
-         <input type="submit" id="buyButton" class="btn btn-default" value="BUY"/>
-       </div>
+        <input type="submit" id="buyButton" class="btn btn-default" value="BUY"/>
+      </div>
     </div>
   </div>
 </div>
-
 <div id="hidden-users" style="visibility: hidden;">
-    {{#each owners}}
-    <p id="{{this.name}}" style="display:inline">{{this.propertiesOwned}}</p>
-    <p class="ownersBx" style="display:inline">{{this.name}}</p>
-    {{/each}} {{!-- To populate area, location --}}
-    {{#each surveys}}
-        <p class="{{this.surveyNo}}" style="display:inline">{{this.location}}/{{this.area}}</p>
-    {{/each}}
+  {{#each owners}}
+  <p id="{{this.name}}" style="display:inline">{{this.propertiesOwned}}</p>
+  <p class="ownersBx" style="display:inline">{{this.name}}</p>
+  {{/each}} {{!-- To populate area, location --}}
+  {{#each surveys}}
+  <p class="{{this.surveyNo}}" style="display:inline">{{this.location}}/{{this.area}}</p>
+  {{/each}}
 </div>

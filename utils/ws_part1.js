@@ -8,7 +8,6 @@ module.exports.setup = function(sdk, cc) {
   chaincode = cc;
 };
 
-
 module.exports.myProcessMsg = function(data, callback) {
   if (data.type == 'create') { // create a new marble
     console.log('its a create!');
@@ -42,7 +41,6 @@ module.exports.myProcessMsg = function(data, callback) {
     chaincode.query.readSurveyIndex([], callback);
 
   }
-
 
   function cbStats(err, chainStats) {
     if (err) {
