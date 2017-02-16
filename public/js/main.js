@@ -26,6 +26,18 @@ $(document).ready(function() {
             area,
             location
         };
+/*
+function showAlert(){
+  if($("#myAlert").find("div#myAlert2").length==0){
+    $("#myAlert").append("<div class='alert alert-success alert-dismissable' id='myAlert2'> <button type='button' class='close' data-dismiss='alert'  aria-hidden='true'>&times;</button> Success! message sent successfully.</div>");
+  }
+  $("#myAlert").css("display", "");
+}
+*/
+/*$("#registerButton").click(function(){
+  
+  $(".alert").hide().show('medium');
+});*/
 
         $.ajax({
             type: "post",
@@ -33,9 +45,11 @@ $(document).ready(function() {
             data: data,
             success: function(response) {
                 console.log(response);
-                $('#result').text(JSON.stringify(response));
+                $(".alert").hide().show('medium');
+              //  $('#result').text("Registration Successful");
             },
             error: function(xhr, textStatus, error) {
+                        $('#result').text("Registration Failed");
                 console.log(xhr.statusText);
                 console.log(textStatus);
                 console.log(error);

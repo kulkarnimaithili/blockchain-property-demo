@@ -295,3 +295,6 @@ hr {
   
   height: auto;
 }
+.alert{
+  display:none;
+}
