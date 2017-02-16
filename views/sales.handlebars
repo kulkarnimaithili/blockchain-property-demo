@@ -1,18 +1,18 @@
 <link rel="stylesheet" type="text/css" href="css/sales.css">
 
-<div id="sales" class="bg-1">
+<div id="sales">
   <div class="container">
     <h3 class="text-center main-title">Sell your property</h3>
       <br>
     </p>
     <div id="salesinner">
-      <div class="col-sm-3 form-group">
-        <img src="imgs/cartoon.png" style="max-width:100%;"/>
-      </div>
-      <div class="col-sm-3 form-group">
+{{!--       <div class="col-sm-3 form-group">
+         <img src="imgs/cartoon.png" style="max-width:100%;"/> 
+      </div> --}}
+      <div class="col-sm-6 form-group">
         <label for="usr">Buy From: </label>
         <br>
-        <select class="salesDropdown" id="buyFrom" value="--Buy From--">
+        <select class="salesDropdown" id="buyFrom" value="--Buy From--" style="width:434px;">
           <option value="">Select Seller </option>
           {{#each owners}}
           <option value="{{this.name}}">{{this.name}}</option>
@@ -24,10 +24,13 @@
         <input type="text" class="form-control" id="areaField" name="Area" disabled="disabled">
       </div>
       {{!-- Survey Number --}}
-      <div class="col-sm-3 form-group">
+      {{!-- <div class="col-sm-3 form-group">
+         <img src="imgs/cartoon.png" style="max-width:100%;"/> 
+      </div> --}}
+      <div class="col-sm-6 form-group">
         <label for="usr">Survey No: </label>
         <br>
-        <select id="survey" value="--Buy From--">
+        <select id="survey" value="--Buy From--" style="width:434px">
           <option value="">Select Survey No</option>
         </select>
       </div>
@@ -38,13 +41,13 @@
       <br>
       <div class="col-xs-12" size="2">
         <hr>
-      </div>
+      </div>{{!-- 
       <div class="col-sm-3">
-      </div>
+      </div> --}}
       <div class="col-sm-3 form-group">
         <label for="usr">Buyer: </label>
         <br>
-        <select class="salesDropdown" id="sellTo" value="--SBuyer--">
+        <select class="salesDropdown" id="sellTo" value="--Select Buyer--" style="width:434px;">
           <option value="">Select Buyer </option>
           {{#each owners}}
           <option value="{{this.name}}">{{this.name}}</option>

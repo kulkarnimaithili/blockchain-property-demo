@@ -5,7 +5,7 @@
   <h3 class="text-center main-title">Register Your Property!</h3>
   <br>
   <form id="form-register" name="registration">
-    <div id="dropdownname" class="col-sm-6 form-group">
+    <div class="col-sm-6 form-group">
       <label for="usr">Name: </label>
       <br>
       <select name="ownerName" id="ownerName" value="--Select Name--" style="width:434px;">
@@ -24,7 +24,7 @@
     <br> {{!-- Aadhar --}}
     <div class="col-sm-6 form-group">
       <label for="usr">Aadhar Card No:</label>
-      <input type="text" class="form-control" id="aadhar" name="aadhar" disabled="disabled" required="required" >{{!-- onkeypress='return event.charCode >= 48 && event.charCode <= 57' maxlength="12" minlength="12" --}}
+      <input type="text" class="form-control" id="aadhar" name="aadhar" disabled="disabled" required="required" >
     </div>
     {{!-- Area --}}
     <div class="col-sm-6 form-group">
@@ -52,6 +52,7 @@
       </strong>
     </div>
   </div>
+</div>
 </div>
 <div id="hidden-users" style="display:inline;visibility: hidden;">
   {{#each owners}}
