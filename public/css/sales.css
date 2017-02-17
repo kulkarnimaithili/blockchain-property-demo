@@ -18,8 +18,7 @@ hr {
   background: #fff;
   color: #000;
   height: 100%;
-  background-image: url(../imgs/whitebg.jpg);    /*
-    background-image: url(../imgs/pexels-photo.jpg);*/
+  background-image: url(../imgs/whitebg.jpg);
   background-size: cover;
 }
 .container {

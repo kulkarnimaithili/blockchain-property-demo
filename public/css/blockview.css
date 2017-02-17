@@ -1,28 +1,28 @@
 #hidden-data {
-    display: none;
+  display: none;
 }
 .hidden-details {
-    display: none;
-    color: #000;
+  display: none;
+  color: #000;
 }
 .show_details:hover + .hidden-details {
-    display: block;
-    color: #000;
+  display: block;
+  color: #000;
 }
 .blocks {
-    margin-top: 5em;
-    background-image: url(../imgs/whitebg.jpg);
-    min-height: 100%;
-    height: 100%;
+  margin-top: 5em;
+  background-image: url(../imgs/whitebg.jpg);
+  min-height: 100%;
+  height: 100%;
 }
 .navbar {
-    min-height: 45px;
-    height: 50px;
+  min-height: 45px;
+  height: 50px;
 }
 code {
-    display: block;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    background-color: transparent;
-    color: #fff;
+  display: block;
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  background-color: transparent;
+  color: #fff;
 }
