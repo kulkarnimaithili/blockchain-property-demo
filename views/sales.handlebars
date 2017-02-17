@@ -12,7 +12,7 @@
             <div class="col-sm-6 form-group">
                 <label for="usr">Buy From: </label>
                 <br>
-                <select class="salesDropdown" id="buyFrom" value="--Buy From--" style="width:434px;">
+                <select class="form-control" id="buyFrom" value="--Buy From--" style="width:100%;">
                     <option value="">Select Seller </option>
                     {{#each owners}}
                     <option value="{{this.name}}">{{this.name}}</option>
@@ -30,7 +30,7 @@
             <div class="col-sm-6 form-group">
                 <label for="usr">Survey No: </label>
                 <br>
-                <select id="survey" value="--Buy From--" style="width:434px">
+                <select id="survey" class="form-control" value="--Buy From--" style="width:100%">
                     <option value="">Select Survey No</option>
                 </select>
             </div>
@@ -44,10 +44,10 @@
             </div>{{!--
             <div class="col-sm-3">
             </div> --}}
-            <div class="col-sm-3 form-group">
+            <div class="col-sm-6 form-group">
                 <label for="usr">Buyer: </label>
                 <br>
-                <select class="salesDropdown" id="sellTo" value="--Select Buyer--" style="width:434px;">
+                <select class="form-control" id="sellTo" value="--Select Buyer--" style="width:100%;">
                     <option value="">Select Buyer </option>
                     {{#each owners}}
                     <option value="{{this.name}}">{{this.name}}</option>
