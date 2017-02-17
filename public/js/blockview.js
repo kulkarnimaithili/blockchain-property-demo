@@ -2,13 +2,13 @@ $(document).ready(function() {
   var blocks = document.getElementById("hidden-data");
   var obj = JSON.parse(blocks.innerHTML);
   var i = 0,
-    howManyTimes = 10;
+    howManyTimes = obj.length;
   var q = document.createElement("div");
   q.className = "row";
 
   function loadCards() {
     var w = document.createElement("div");
-    w.className = "col s6 m2 l3";
+    w.className = "col l1";
     q.appendChild(w);
     var e = document.createElement("div");
     e.className = "card blue-grey darken-1";
