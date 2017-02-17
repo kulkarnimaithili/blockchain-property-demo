@@ -52,7 +52,7 @@ module.exports.myProcessMsg = function(data, callback) {
     const returnBlockCount = 10;  // no of blocks to return
 
     console.log("\n\n-----------");
-    console.log(chainHeight)
+    console.log("Chainheight: ", chainHeight)
     console.log("-----------\n\n");
 
     if (isNaN(chainHeight) || chainHeight < 2) {
