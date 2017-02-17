@@ -34,7 +34,7 @@ router.get('/blockview', function(req, res){
     if (blockChain.message == 'No blocks') {
       return res.status(411).render('blockview', { blockChain });
     }
-    return res.render('blockview', { "blockChain": JSON.stringify(blockChain) });
+    return res.render('blockview', { "blockChain": blockChain });
   });
   
 });

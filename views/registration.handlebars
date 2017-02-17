@@ -8,12 +8,31 @@
             <div class="col-sm-6 form-group">
                 <label for="usr">Name: </label>
                 <br>
-                <select name="ownerName" id="ownerName" value="--Select Name--" style="width:434px;">
+                <select name="ownerName" id="ownerName" value="--Select Name--" class="form-control" style="width:100%">
                     <option value="">Select your Name </option>
                     {{#each owners}}
                     <option value="{{this.name}}">{{this.name}}</option>
                     {{/each}}
                 </select>
+                {{!-- <input name="ownerName" id="ownerName" list="listofowners">
+                <datalist id="listofowners">
+                    <option value="">Select your Name </option>
+                    {{#each owners}}
+                    <option value="{{this.name}}">{{this.name}}</option>
+                    {{/each}}
+                </datalist> --}}
+                {{!--            
+                <form action="/action_page.php">
+                  <input list="browsers">
+                  <datalist id="browsers">
+                    <option value="Internet Explorer">
+                    <option value="Firefox">
+                    <option value="Chrome">
+                    <option value="Opera">
+                    <option value="Safari">
+                  </datalist>
+                </form>
+                --}}
             </div>
             {{!-- Survey --}}
             <div class="col-sm-6 form-group">
@@ -54,8 +73,9 @@
         </div>
     </div>
 </div>
-<div id="hidden-users" style="display:none;visibility: hidden;">
+<div id="hidden-users" style="display: none">
     {{#each owners}}
-    <p class="aadhar" style="display:inline">{{this.aadhar}}</p>
+    <p style="display:inline">{{this.name}}</p>
+     <p class="aadhar" style="display:inline">{{this.aadhar}}</p> 
     {{/each}}
 </div>
