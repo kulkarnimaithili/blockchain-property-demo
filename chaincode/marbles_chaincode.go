@@ -223,9 +223,11 @@ func (t *SimpleChaincode) transfer(stub shim.ChaincodeStubInterface, args []stri
 
 	// Removing survey no. from seller
 	var surveyArr []int64
+	var k = 0
 	for i := 0; i < len(sellerObj.SurveyNos); i++ {
 		if sellerObj.SurveyNos[i] != surveyNo {
-			surveyArr[i] = sellerObj.SurveyNos[i]
+			surveyArr[k] = sellerObj.SurveyNos[i]
+			k = k + 1
 		}
 	}
 
