@@ -1,5 +1,12 @@
 [
   {
+    "survey": "18",
+    "location": "Margao",
+    "area": "3131",
+    "owner": "Behati Prinsloo",
+    "aadhar": "562876920005"
+  },
+  {
     "survey": "10",
     "location": "Panjim",
     "area": "3135",
@@ -75,13 +82,6 @@
     "area": "3131",
     "owner": "Candice Swanepoel",
     "aadhar": "562876920004"
-  },
-  {
-    "survey": "18",
-    "location": "Margao",
-    "area": "3131",
-    "owner": "Behati Prinsloo",
-    "aadhar": "562876920005"
   },
   {
     "survey": "22",
