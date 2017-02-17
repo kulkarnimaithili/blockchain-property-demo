@@ -21,7 +21,7 @@ $(document).ready(function() {
     var data = {
       "seller": seller,
       "buyer": buyer,
-      "survey": survey
+      "surveyNo": survey
     };
 
     console.log(data);

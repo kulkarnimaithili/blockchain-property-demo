@@ -4,63 +4,64 @@
     <h3 class="text-center main-title">Sell your property</h3>
     <br>
     <div id="salesinner">
-      <div class="col-sm-6 form-group">
-        <label for="usr">Buy From: </label>
-        <br>
-        <div id="salesinner">
-          <div class="col-sm-6 form-group">
-            <label for="usr">Buy From: </label>
+      <form id="form-sales">
+        <div class="col-sm-12 form-group">
+          <div id="salesinner">
+            <div class="col-sm-6 form-group">
+              <label for="usr">Buy From: </label>
+              <br>
+              <select class="form-control" id="buyFrom" value="--Buy From--" style="width:100%;">
+                <option value="">Select Seller </option>
+                {{#each owners}}
+                <option value="{{this.name}}">{{this.name}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="col-sm-6 form-group">
+              <label for="usr">Area:</label>
+              <input type="text" class="form-control" id="areaField" name="Area" disabled="disabled">
+            </div>
+            <div class="col-sm-6 form-group">
+              <label for="usr">Survey No: </label>
+              <br>
+              <select id="survey" class="form-control" value="--Buy From--" style="width:100%">
+                <option value="">Select Survey No</option>
+              </select>
+            </div>
+            <div class="col-sm-6 form-group">
+              <label for="Address">Address:</label>
+              <textarea class="form-control" rows="5" id="addressField" name="Address" disabled="disabled"></textarea>
+            </div>
             <br>
-            <select class="form-control" id="buyFrom" value="--Buy From--" style="width:100%;">
-              <option value="">Select Seller </option>
-              {{#each owners}}
-              <option value="{{this.name}}">{{this.name}}</option>
-              {{/each}}
-            </select>
-          </div>
-          <div class="col-sm-6 form-group">
-            <label for="usr">Area:</label>
-            <input type="text" class="form-control" id="areaField" name="Area" disabled="disabled">
-          </div>
-          <div class="col-sm-6 form-group">
-            <label for="usr">Survey No: </label>
-            <br>
-            <select id="survey" class="form-control" value="--Buy From--" style="width:100%">
-              <option value="">Select Survey No</option>
-            </select>
-          </div>
-          <div class="col-sm-6 form-group">
-            <label for="Address">Address:</label>
-            <textarea class="form-control" rows="5" id="addressField" name="Address" disabled="disabled"></textarea>
-          </div>
-          <br>
-          <div class="col-xs-12" size="2">
-            <hr>
-          </div>
-          <div class="col-sm-6 form-group">
-            <label for="usr">Buyer: </label>
-            <br>
-            <select class="form-control" id="sellTo" value="--Select Buyer--" style="width:100%;">
-              <option value="">Select Buyer </option>
-              {{#each owners}}
-              <option value="{{this.name}}">{{this.name}}</option>
-              {{/each}}
-            </select>
-          </div>
-          <div class="col-sm-3 form-group button-register">
-            <input type="submit" id="buyButton" class="btn btn-default" value="BUY" />
-          </div>
-          <div id="blockDetails" class="col-sm-12">
-            <br>
-            <div class="alert alert-info alert-dismissable">
-              <a id="result" class="close" data-dismiss="alert" aria-label="close">×</a>
-              <strong>
-                <center>Congratulations!! You are the proud owner of this property..</center>
-              </strong>
+            <div class="col-xs-12" size="2">
+              <hr>
+            </div>
+            <div class="col-sm-6 form-group">
+              <label for="usr">Buyer: </label>
+              <br>
+              <select class="form-control" id="sellTo" value="--Select Buyer--" style="width:100%;">
+                <option value="">Select Buyer </option>
+                {{#each owners}}
+                <option value="{{this.name}}">{{this.name}}</option>
+                {{/each}}
+              </select>
+            </div>
+            <div class="col-sm-2"></div>
+            <div class="col-sm-2 form-group button-register">
+              <input type="submit" id="buyButton" class="btn btn-default" value="BUY" />
+            </div>
+            <div id="blockDetails" class="col-sm-12">
+              <br>
+              <div class="alert alert-info alert-dismissable">
+                <a id="result" class="close" data-dismiss="alert" aria-label="close">×</a>
+                <strong>
+                  <center>Congratulations!! You are the proud owner of this property..</center>
+                </strong>
+              </div>
             </div>
           </div>
         </div>
-      </div>
+      </form>
     </div>
   </div>
 </div>
@@ -73,3 +74,6 @@
   <p class="{{this.surveyNo}}" style="display:inline">{{this.location}}/{{this.area}}</p>
   {{/each}}
 </div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+<script type="text/javascript" src="js/sales.js"></script>

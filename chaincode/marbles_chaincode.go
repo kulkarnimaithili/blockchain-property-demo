@@ -161,6 +161,7 @@ func (t *SimpleChaincode) initProperty(stub shim.ChaincodeStubInterface, args []
 	flag := true
 	if len(ownerIndex) == 0 {
 		ownerIndex = append(ownerIndex, ownerName)
+		flag = false
 	} else {
 		for i := 0; i < len(ownerIndex); i++ {
 			if ownerIndex[i] == ownerName {
