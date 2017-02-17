@@ -22,10 +22,10 @@ module.exports.myProcessMsg = function(data, callback) {
 
     const transferData = data.transferData;
     
-    if (transferData.seller && transferData.surveyNo && transferData.buyer) {
+    if (transferData.sellerd && transferData.surveyNo && transferData.buyer) {
       chaincode.invoke.transfer([transferData.seller, transferData.surveyNo, transferData.buyer], callback);
     } else {
-      return callback("Arguments don't exist", null)
+      return callback({"error": "Arguments don't exist"}, null)
     }
 
   } else if (data.type == 'chainstats') {
