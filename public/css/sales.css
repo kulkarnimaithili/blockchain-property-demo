@@ -1,32 +1,27 @@
 #buyButton {
-    background-color: rgb(0, 87, 231);
-    color: rgb(230, 230, 230);
-    margin-top: 2em;
-    margin-left:11em;
+  background-color: rgb(0, 87, 231);
+  color: rgb(230, 230, 230);
+  margin-top: 2em;    /*margin-left:11em;*/
 }
 #buyButton:hover {
-    font-weight: bold;
-    background-color: rgb(0, 51, 204);
-    color: rgb(230, 230, 230);
+  font-weight: bold;
+  background-color: rgb(0, 51, 204);
+  color: rgb(230, 230, 230);
 }
 hr {
- 
-    border: none;
-    height: 1px;
-    /* Set the hr color */
-    color: #333; /* old IE */
-    background-color: #333; /* Modern Browsers */
+  border: none;
+  height: 1px;    /* Set the hr color */
+  color: #333; /* old IE */
+  background-color: #333; /* Modern Browsers */
 }
 #sales {
-    background: #fff;
-    color: #000;
-    height: 100%;
-    background-image: url(../imgs/whitebg.jpg);
-    /*
-  background-image: url(../imgs/pexels-photo.jpg);*/
-    
-    background-size: cover;
+  background: #fff;
+  color: #000;
+  height: 100%;
+  background-image: url(../imgs/whitebg.jpg);    /*
+    background-image: url(../imgs/pexels-photo.jpg);*/
+  background-size: cover;
 }
 .container {
-    margin-top: 2em;
+  margin-top: 2em;
 }
