@@ -77,7 +77,7 @@ h2 {
     background-color: rgb(0, 87, 231);
     border: 0;
     font-size: 15px !important;
-    letter-spacing: 4px;
+    letter-spacing: 2px;
     opacity: 0.9;
 }
 .navbar li a,
@@ -172,4 +172,17 @@ li {
     background-color: rgb(192, 192, 192);
     color: rgb(0, 87, 231);
     text-decoration: underline;
+}
+
+/* Navbar divider*/
+.row.vdivide [class*='col-']:not(:last-child):after {
+  background: #e0e0e0;
+  width: 1px;
+  content: "";
+  display:block;
+  position: absolute;
+  top:0;
+  bottom: 0;
+  right: 0;
+  min-height: 70px;
 }

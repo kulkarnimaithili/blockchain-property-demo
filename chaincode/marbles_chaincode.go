@@ -158,7 +158,19 @@ func (t *SimpleChaincode) initProperty(stub shim.ChaincodeStubInterface, args []
 	ownerIndexAsBytes, _ := stub.GetState(ownerIndexStr)
 	var ownerIndex []string
 	json.Unmarshal(ownerIndexAsBytes, &ownerIndex)
-	ownerIndex = append(ownerIndex, ownerName)
+	flag := true
+	if len(ownerIndex) == 0 {
+		ownerIndex = append(ownerIndex, ownerName)
+	} else {
+		for i := 0; i < len(ownerIndex); i++ {
+			if ownerIndex[i] == ownerName {
+				flag = false
+			}
+		}
+	}
+	if flag {
+		ownerIndex = append(ownerIndex, ownerName)
+	}
 	bytesOwnerIndex, _ := json.Marshal(ownerIndex)
 	err = stub.PutState(ownerIndexStr, bytesOwnerIndex)
 	if err != nil {
