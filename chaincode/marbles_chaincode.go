@@ -216,8 +216,6 @@ func (t *SimpleChaincode) transfer(stub shim.ChaincodeStubInterface, args []stri
 		return nil, errors.New("Incorrect number of arguments. Expected 3 arguments")
 	}
 
-	var err error
-
 	// Set keys
 	sellerName := args[0]
 	buyerName := args[2]
@@ -238,16 +236,13 @@ func (t *SimpleChaincode) transfer(stub shim.ChaincodeStubInterface, args []stri
 	if index != -1 {
 		newSellerObj.SurveyNos = append(sellerObj.SurveyNos[:index], sellerObj.SurveyNos[index+1:]...)
 	} else {
-		err = errors.New("An error occured")
+		err := errors.New("An error occured")
 		return nil, err
 	}
 
 	// Put the new state of seller into blockchain
 	sellerAsBytes, _ = json.Marshal(newSellerObj)
-	err = stub.PutState(sellerName, sellerAsBytes)
-	if err != nil {
-		return nil, errors.New("Pustate failed")
-	}
+	_ = stub.PutState(sellerName, sellerAsBytes)
 
 	// 2. Add survey number to buyer's survey number array
 
@@ -261,10 +256,7 @@ func (t *SimpleChaincode) transfer(stub shim.ChaincodeStubInterface, args []stri
 
 	// Put the new state of buyer into blockchain
 	buyerAsBytes, _ = json.Marshal(buyerObj)
-	err = stub.PutState(buyerName, buyerAsBytes)
-	if err != nil {
-		return nil, errors.New("Pustate failed")
-	}
+	_ = stub.PutState(buyerName, buyerAsBytes)
 
 	// 3. Add buyer's name to survey state
 
@@ -278,10 +270,7 @@ func (t *SimpleChaincode) transfer(stub shim.ChaincodeStubInterface, args []stri
 
 	// Put the new state of survey into blockchain
 	surveyAsBytes, _ = json.Marshal(survey)
-	err = stub.PutState(strconv.FormatInt(transferSurveyNo, 10), surveyAsBytes)
-	if err != nil {
-		return nil, errors.New("Pustate failed")
-	}
+	_ = stub.PutState(strconv.FormatInt(transferSurveyNo, 10), surveyAsBytes)
 
 	return nil, nil
 }
