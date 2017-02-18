@@ -231,16 +231,19 @@ func (t *SimpleChaincode) transfer(stub shim.ChaincodeStubInterface, args []stri
 	json.Unmarshal(sellerAsBytes, &sellerObj)
 
 	// Remove survey number from seller's survey number array
+	var newSellerObj Owner
+	newSellerObj.Name = sellerObj.Name
+	newSellerObj.Aadhar = sellerObj.Aadhar
 	index := SliceIndex(len(sellerObj.SurveyNos), func(i int) bool { return sellerObj.SurveyNos[i] == transferSurveyNo })
 	if index != -1 {
-		sellerObj.SurveyNos = append(sellerObj.SurveyNos[:index], sellerObj.SurveyNos[index+1:]...)
+		newSellerObj.SurveyNos = append(sellerObj.SurveyNos[:index], sellerObj.SurveyNos[index+1:]...)
 	} else {
 		err = errors.New("An error occured")
 		return nil, err
 	}
 
 	// Put the new state of seller into blockchain
-	sellerAsBytes, _ = json.Marshal(sellerObj)
+	sellerAsBytes, _ = json.Marshal(newSellerObj)
 	err = stub.PutState(sellerName, sellerAsBytes)
 	if err != nil {
 		return nil, errors.New("Pustate failed")
