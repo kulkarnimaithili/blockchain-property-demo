@@ -88,6 +88,9 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 	} else if function == "transfer" {
 		// Transfers property from one owner to another
 		return t.transfer(stub, args)
+	} else if function == "debug" {
+		// only fot testing transfer function
+		return t.debug(stub, args)
 	}
 
 	fmt.Println("invoke did not find func: " + function) //error
@@ -208,6 +211,27 @@ func SliceIndex(limit int, predicate func(i int) bool) int {
 		}
 	}
 	return -1
+}
+
+// Debug : testing trasnfer function operations individually
+func (t *SimpleChaincode) debug(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+	transferSurvey, _ := strconv.ParseInt(args[1], 10, 64)
+
+	// 1. Remove survey number from seller (owner struct)
+	sellerAsBytes, _ := stub.GetState(args[0])
+	var sellerObj Owner
+	var newSellerObj Owner
+	json.Unmarshal(sellerAsBytes, &sellerObj)
+
+	newSellerObj.Name = sellerObj.Name
+	newSellerObj.Aadhar = sellerObj.Aadhar
+
+	index := SliceIndex(len(sellerObj.SurveyNos), func(i int) bool { return sellerObj.SurveyNos[i] == transferSurvey })
+	newSellerObj.SurveyNos = append(sellerObj.SurveyNos[:index], sellerObj.SurveyNos[index+1:]...)
+
+	sellerBytes, _ := json.Marshal(newSellerObj)
+	_ = stub.PutState(args[0], sellerBytes)
+	return nil, nil
 }
 
 // Transfer : transfers property from one owner to another
