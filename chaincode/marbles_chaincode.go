@@ -200,6 +200,16 @@ func (t *SimpleChaincode) initProperty(stub shim.ChaincodeStubInterface, args []
 	return nil, nil
 }
 
+// SliceIndex : find the index of an element in an array (generic)
+func SliceIndex(limit int, predicate func(i int) bool) int {
+	for i := 0; i < limit; i++ {
+		if predicate(i) {
+			return i
+		}
+	}
+	return -1
+}
+
 // Transfer : transfers property from one owner to another
 func (t *SimpleChaincode) transfer(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	if len(args) != 3 {
@@ -208,74 +218,66 @@ func (t *SimpleChaincode) transfer(stub shim.ChaincodeStubInterface, args []stri
 
 	var err error
 
-	// Setting keys
-	var seller = args[0]
-	var surveyNo, _ = strconv.ParseInt(args[1], 10, 64)
-	var buyer = args[2]
+	// Set keys
+	sellerName := args[0]
+	buyerName := args[2]
+	transferSurveyNo, _ := strconv.ParseInt(args[1], 10, 64)
 
-	// 1) Removing survey number from seller
-	// Get the current state of seller
-	sellerAsBytes, _ := stub.GetState(seller)
+	// 1. Remove survey number from seller (owner struct)
 
-	// Unmarshalling seller state
+	// Fetch seller and unmarshall the result
+	sellerAsBytes, _ := stub.GetState(sellerName)
 	var sellerObj Owner
 	json.Unmarshal(sellerAsBytes, &sellerObj)
 
-	// Removing survey no. from seller
-	var surveyArr []int64
-	var k = 0
-	for i := 0; i < len(sellerObj.SurveyNos); i++ {
-		if sellerObj.SurveyNos[i] != surveyNo {
-			surveyArr[k] = sellerObj.SurveyNos[i]
-			k = k + 1
-		}
+	// Remove survey number from seller's survey number array
+	index := SliceIndex(len(sellerObj.SurveyNos), func(i int) bool { return sellerObj.SurveyNos[i] == transferSurveyNo })
+	if index != -1 {
+		sellerObj.SurveyNos = append(sellerObj.SurveyNos[:index], sellerObj.SurveyNos[index+1:]...)
+	} else {
+		err = errors.New("An error occured")
+		return nil, err
 	}
 
-	// Assigning new survey list to sellerObj
-	sellerObj.SurveyNos = surveyArr
-
-	// Storing new state for sellerObj
-	sellerBytes, _ := json.Marshal(sellerObj)
-	err = stub.PutState(seller, sellerBytes)
+	// Put the new state of seller into blockchain
+	sellerAsBytes, _ = json.Marshal(sellerObj)
+	err = stub.PutState(sellerName, sellerAsBytes)
 	if err != nil {
-		return nil, errors.New("An error occurred")
+		return nil, errors.New("Pustate failed")
 	}
 
-	// 2) Adding buyer's name to survey list
-	// Get the current survey state
-	surveyAsBytes, _ := stub.GetState(args[1])
+	// 2. Add survey number to buyer's survey number array
 
-	// Unmarshalling survey state
-	var surveyObj Survey
-	json.Unmarshal(surveyAsBytes, &surveyObj)
-
-	// Adding buyer's name to survey owner's list
-	surveyObj.Owners = append(surveyObj.Owners, buyer)
-
-	// Storing new state for surveyObj
-	surveyBytes, _ := json.Marshal(surveyObj)
-	err = stub.PutState(args[1], surveyBytes)
-	if err != nil {
-		return nil, errors.New("An error occurred")
-	}
-
-	// 3) Adding survey number to buyer
-	// Get the current state of buyer
-	buyerAsBytes, _ := stub.GetState(buyer)
-
-	// Unmarshalling buyer state
+	// Fetch buyer and unmarshall the result
+	buyerAsBytes, _ := stub.GetState(buyerName)
 	var buyerObj Owner
 	json.Unmarshal(buyerAsBytes, &buyerObj)
 
-	// Adding survey number to buyers survey number list
-	buyerObj.SurveyNos = append(buyerObj.SurveyNos, surveyNo)
+	// Appending survey number to buyer's survey number array
+	buyerObj.SurveyNos = append(buyerObj.SurveyNos, transferSurveyNo)
 
-	// Store the new state of buyerObj
-	buyerBytes, _ := json.Marshal(buyerObj)
-	err = stub.PutState(buyer, buyerBytes)
-
+	// Put the new state of buyer into blockchain
+	buyerAsBytes, _ = json.Marshal(buyerObj)
+	err = stub.PutState(buyerName, buyerAsBytes)
 	if err != nil {
-		return nil, errors.New("An error occurred")
+		return nil, errors.New("Pustate failed")
+	}
+
+	// 3. Add buyer's name to survey state
+
+	// Fetch the survey state and unmarshall the result
+	surveyAsBytes, _ := stub.GetState(strconv.FormatInt(transferSurveyNo, 10))
+	var survey Survey
+	json.Unmarshal(surveyAsBytes, &survey)
+
+	// Appending buyer's name to survey struct's owner array
+	survey.Owners = append(survey.Owners, buyerName)
+
+	// Put the new state of survey into blockchain
+	surveyAsBytes, _ = json.Marshal(survey)
+	err = stub.PutState(strconv.FormatInt(transferSurveyNo, 10), surveyAsBytes)
+	if err != nil {
+		return nil, errors.New("Pustate failed")
 	}
 
 	return nil, nil
