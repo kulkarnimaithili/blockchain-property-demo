@@ -89,9 +89,6 @@ func (t *SimpleChaincode) Invoke(stub shim.ChaincodeStubInterface, function stri
 	} else if function == "transfer" {
 		// Transfers property from one owner to another
 		return t.transfer(stub, args)
-	} else if function == "debug" {
-		// only fot testing transfer function
-		return t.debug(stub, args)
 	}
 
 	fmt.Println("invoke did not find func: " + function) //error
@@ -214,8 +211,8 @@ func SliceIndex(limit int, predicate func(i int) bool) int {
 	return -1
 }
 
-// Debug : testing trasnfer function operations individually
-func (t *SimpleChaincode) debug(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
+// Transfer : transfers a property from one owner to another
+func (t *SimpleChaincode) transfer(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
 	transferSurvey, _ := strconv.ParseInt(args[1], 10, 64)
 
 	// 1. Remove survey number from seller (owner struct)
@@ -233,71 +230,37 @@ func (t *SimpleChaincode) debug(stub shim.ChaincodeStubInterface, args []string)
 	sellerBytes, _ := json.Marshal(newSellerObj)
 	_ = ioutil.WriteFile("output.json", sellerBytes, 0644)
 	_ = stub.PutState(args[0], sellerBytes)
-	return nil, nil
-}
-
-// Transfer : transfers property from one owner to another
-func (t *SimpleChaincode) transfer(stub shim.ChaincodeStubInterface, args []string) ([]byte, error) {
-	if len(args) != 3 {
-		return nil, errors.New("Incorrect number of arguments. Expected 3 arguments")
-	}
-
-	// Set keys
-	sellerName := args[0]
-	buyerName := args[2]
-	transferSurveyNo, _ := strconv.ParseInt(args[1], 10, 64)
-
-	// 1. Remove survey number from seller (owner struct)
-
-	// Fetch seller and unmarshall the result
-	sellerAsBytes, _ := stub.GetState(sellerName)
-	var sellerObj Owner
-	json.Unmarshal(sellerAsBytes, &sellerObj)
-
-	// Remove survey number from seller's survey number array
-	var newSellerObj Owner
-	newSellerObj.Name = sellerObj.Name
-	newSellerObj.Aadhar = sellerObj.Aadhar
-	index := SliceIndex(len(sellerObj.SurveyNos), func(i int) bool { return sellerObj.SurveyNos[i] == transferSurveyNo })
-	if index != -1 {
-		newSellerObj.SurveyNos = append(sellerObj.SurveyNos[:index], sellerObj.SurveyNos[index+1:]...)
-	} else {
-		err := errors.New("An error occured")
-		return nil, err
-	}
-
-	// Put the new state of seller into blockchain
-	sellerAsBytes, _ = json.Marshal(newSellerObj)
-	_ = stub.PutState(sellerName, sellerAsBytes)
 
 	// 2. Add survey number to buyer's survey number array
-
-	// Fetch buyer and unmarshall the result
-	buyerAsBytes, _ := stub.GetState(buyerName)
+	buyerAsBytes, _ := stub.GetState(args[2])
 	var buyerObj Owner
+	var newBuyerObj Owner
 	json.Unmarshal(buyerAsBytes, &buyerObj)
 
-	// Appending survey number to buyer's survey number array
-	buyerObj.SurveyNos = append(buyerObj.SurveyNos, transferSurveyNo)
+	newBuyerObj.Name = buyerObj.Name
+	newBuyerObj.Aadhar = buyerObj.Aadhar
 
-	// Put the new state of buyer into blockchain
-	buyerAsBytes, _ = json.Marshal(buyerObj)
-	_ = stub.PutState(buyerName, buyerAsBytes)
+	newBuyerObj.SurveyNos = append(buyerObj.SurveyNos, transferSurvey)
+
+	buyerBytes, _ := json.Marshal(newBuyerObj)
+	_ = ioutil.WriteFile("output1.json", buyerBytes, 0644)
+	_ = stub.PutState(args[2], buyerBytes)
 
 	// 3. Add buyer's name to survey state
+	surveyAsBytes, _ := stub.GetState(args[1])
+	var surveyObj Survey
+	var newSurveyObj Survey
+	json.Unmarshal(surveyAsBytes, &surveyObj)
 
-	// Fetch the survey state and unmarshall the result
-	surveyAsBytes, _ := stub.GetState(strconv.FormatInt(transferSurveyNo, 10))
-	var survey Survey
-	json.Unmarshal(surveyAsBytes, &survey)
+	newSurveyObj.Area = surveyObj.Area
+	newSurveyObj.Location = surveyObj.Location
+	newSurveyObj.SurveyNo = surveyObj.SurveyNo
 
-	// Appending buyer's name to survey struct's owner array
-	survey.Owners = append(survey.Owners, buyerName)
+	newSurveyObj.Owners = append(surveyObj.Owners, args[2])
 
-	// Put the new state of survey into blockchain
-	surveyAsBytes, _ = json.Marshal(survey)
-	_ = stub.PutState(strconv.FormatInt(transferSurveyNo, 10), surveyAsBytes)
-
+	surveyBytes, _ := json.Marshal(newSurveyObj)
+	_ = ioutil.WriteFile("output2.json", surveyBytes, 0644)
+	_ = stub.PutState(args[1], surveyBytes)
 	return nil, nil
 }
 
