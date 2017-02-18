@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"errors"
 	"fmt"
+	"io/ioutil"
 	"strconv"
 
 	"github.com/hyperledger/fabric/core/chaincode/shim"
@@ -230,6 +231,7 @@ func (t *SimpleChaincode) debug(stub shim.ChaincodeStubInterface, args []string)
 	newSellerObj.SurveyNos = append(sellerObj.SurveyNos[:index], sellerObj.SurveyNos[index+1:]...)
 
 	sellerBytes, _ := json.Marshal(newSellerObj)
+	_ = ioutil.WriteFile("output.json", sellerBytes, 0644)
 	_ = stub.PutState(args[0], sellerBytes)
 	return nil, nil
 }
