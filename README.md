@@ -2,7 +2,7 @@
 
 
 ## Installation
- 
+
 ```console
 git clone https://github.com/aarongoa/blockchain-property-demo
 cd blockchain-property-demo
@@ -32,4 +32,4 @@ npm install
 * [Riya Borkar](https://github.com/riyaborkar)
 * [Saideep Bhosle](https://github.com/bhosle)
 * [Shantanu Kulkarni](https://github.com/shantanu3637)
-* [Vivek Kumar](https://github.com/vivek-007)
+* [Vivek Kumar](https://github.com/vivek-26)
