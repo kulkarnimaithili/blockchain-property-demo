@@ -1,23 +1,38 @@
 .jumbotron {
+    text-align: center;
+    margin: 20px auto;
+    z-index: 2;
+    position: absolute;
+    color: rgb(0, 87, 231);
+    font-size: 24px;
+    font-weight: bold;
+    left: 20%;
+    right: 20%;
+    top: 50px;
+    align-content: center;
+    background-color: rgb(230, 230, 230);
+    opacity: 0.65;
+    padding: 10px;
+  }
+
+.banner{
   text-align: center;
-  margin: 20px auto;
+  /*margin: 20px auto;*/
   z-index: 2;
   position: absolute;
   color: rgb(0, 87, 231);
   font-size: 24px;
   font-weight: bold;
-  left: 20%;
-  right: 20%;
-  top: 50px;
-  align-content: center;
+  /*left: 20%;
+  right: 20%;*/
+  margin-top: 5%;
   background-color: rgb(230, 230, 230);
   opacity: 0.65;
-  background-size: cover;
-  padding: 10px;
 }
-.image-set {
-  width: 100%;
-  height: 100%;
+
+.carousel-images {
+    height: 100%;
+    width: 100%;
 }
 #jbText {
   font-weight: bold;
@@ -45,10 +60,52 @@
   z-index: 2;
 }
 .btn-xlarge {
-  padding: 18px 28px;
   font-size: 30px;    /*change this to your desired size*/
   line-height: normal;
   -webkit-border-radius: 8px;
   -moz-border-radius: 8px;
   border-radius: 8px;
+}
+
+ @media only screen and (max-width:760px) {
+.jumbotron {
+    margin-top: 1px;
+    text-align: center;
+    z-index: 2;
+    position: absolute;
+    color: rgb(0, 87, 231);
+    font-size: 10px;
+    font-weight: bold;
+    background-color: rgb(230, 230, 230);
+    opacity: 0.8;
+    padding: 0px;
+  }
+
+  h1,h2{
+    font-size: 10px;
+  }
+
+  /* Buttons on home page */
+#homeButton1 {
+  position: absolute;
+  top: 60%;
+  left: 22%;
+  opacity: 0.8;
+  z-index: 2;
+}
+#homeButton2 {
+  position: absolute;
+  top: 60%;
+  right: 22%;
+  opacity: 0.8;
+  z-index: 2;
+}
+
+.btn-xlarge {
+  font-size: 10px;    /*change this to your desired size*/
+  line-height: normal;
+  -webkit-border-radius: 8px;
+  -moz-border-radius: 8px;
+  border-radius: 8px;
+  }
 }

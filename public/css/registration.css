@@ -7,12 +7,10 @@
   background-image: url(../imgs/whitebg.jpg);
 }
 #registerButton {
-  margin-top: 0px;
+  margin-top: 2em;
   background-color: rgb(0, 87, 231);
   color: rgb(230, 230, 230);
   position: relative;
-  left: 43%;
-  top: 80%;
 }
 .container {
   margin-top: 2em;

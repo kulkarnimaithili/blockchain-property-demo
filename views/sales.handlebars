@@ -1,6 +1,7 @@
 <link rel="stylesheet" type="text/css" href="css/sales.css">
 <div id="sales">
   <div class="container">
+    <div class="col-sm-4"></div>
     <h3 class="text-center main-title">Sell your property</h3>
     <br>
     <div id="salesinner">
@@ -30,7 +31,7 @@
             </div>
             <div class="col-sm-6 form-group">
               <label for="Address">Address:</label>
-              <textarea class="form-control" rows="5" id="addressField" name="Address" disabled="disabled"></textarea>
+              <textarea class="form-control" id="addressField" name="Address" disabled="disabled"></textarea>
             </div>
             <br>
             <div class="col-xs-12" size="2">
@@ -68,12 +69,11 @@
 <div id="hidden-users" style="display:none;">
   {{#each owners}}
   <p id="{{this.name}}" style="display:inline">{{this.surveyNumbers}}</p>
-  <p class="ownersBx" style="display:inline">{{this.name}}</p>
+  <p class="ownersList" style="display:inline">{{this.name}}</p>
   {{/each}}
   {{#each surveys}}
   <p class="{{this.surveyNo}}" style="display:inline">{{this.location}}/{{this.area}}</p>
   {{/each}}
 </div>
-
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/sales.js"></script>

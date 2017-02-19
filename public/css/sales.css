@@ -1,3 +1,10 @@
+
+
+#wrap {min-height: 100%;}
+
+#main {overflow:auto;
+  padding-bottom: 150px;}  /* must be same height as the footer */
+
 #buyButton {
   background-color: rgb(0, 87, 231);
   color: rgb(230, 230, 230);
@@ -23,4 +30,8 @@ hr {
 }
 .container {
   margin-top: 2em;
+}
+textarea {
+    box-sizing: border-box;
+    resize: none;
 }
