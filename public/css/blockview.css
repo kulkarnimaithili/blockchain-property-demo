@@ -1,36 +1,73 @@
 #hidden-data {
   display: none;
 }
-.hidden-details {
-  display: none;
-  color: #000;
-}
-.show_details:hover + .hidden-details {
-  display: block;
-  color: #000;
-}
+
 .blocks {
   margin-top: 5em;
   background-image: url(../imgs/whitebg.jpg);
   min-height: 100%;
   height: 100%;
 }
+
 .navbar {
   min-height: 45px;
   height: 50px;
 }
+
 code {
-<<<<<<< HEAD
-    display: block;
-    white-space: pre-wrap;
-    word-wrap: break-word;
-    background-color: transparent;
-    color: #fff
-=======
   display: block;
   white-space: pre-wrap;
   word-wrap: break-word;
-  background-color: transparent;
-  color: #fff;
->>>>>>> master
+}
+
+ /* ttip container */
+.ttip {
+    margin: 10px;
+    background-color: #0057e7;
+    color: #d5d5d5;
+    position: relative;
+    display: inline-block;
+    text-align: center;
+    border-radius: 5px;
+}
+
+/* ttip text */
+.ttip .ttiptext {
+    visibility: hidden;
+    width: 500px;
+    background-color: black;
+    color: #fff;
+    border-radius: 6px;
+    padding: 5px;
+    text-align: left;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+    top: 100%;
+    left: 50%;
+    margin-left: -250px;
+    word-wrap: break-word;
+}
+
+/* Tooltip arrow */
+.ttip .ttiptext::after {
+    content: " ";
+    position: absolute;
+    bottom: 100%;  /* At the top of the tooltip */
+    left: 50%;
+    margin-left: -5px;
+    border-width: 5px;
+    border-style: solid;
+    border-color: transparent transparent black transparent;
+}
+
+/* Show the tooltip text when you mouse over the tooltip container */
+.ttip:hover .ttiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* Toggle this class when clicking on the popup container (hide and show the popup) */
+.ttip .show {
+    visibility: visible;
 }
