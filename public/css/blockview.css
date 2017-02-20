@@ -22,13 +22,17 @@ code {
 
  /* ttip container */
 .ttip {
-    margin: 10px;
+    margin-right: 18px;
     background-color: #0057e7;
     color: #d5d5d5;
     position: relative;
     display: inline-block;
     text-align: center;
     border-radius: 5px;
+}
+
+.ttip:last-child {
+  margin-right: 0;
 }
 
 /* ttip text */
