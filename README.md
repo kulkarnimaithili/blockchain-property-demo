@@ -19,6 +19,16 @@ npm install
 ### Deploy on Bluemix
 * To deploy on IBM Bluemix, follow the instructions [here](https://github.com/aarongoa/marbles/blob/master/docs/host_marbles_bluemix.md)
 
+### Seeding
+* After deploying, seed the app with property owners, properties, and mappings between owners and properties.
+* To seed, send a `POST` to `<url_where_deployed>/seed`
+for example:
+```console
+POST        localhost:3000/seed
+```
+* You can modify the seed data in: `config/seedData.json`.
+* Seeding will only work if the app environment is set to <b>development</b>
+
 ## Note
 * The project downloads chaincode from branch `v1.0`
 * You can configure the repo from which to download in the `options` object in `app.js`
@@ -26,7 +36,7 @@ npm install
 
 
 ## Contributors
-* [Aaron Colaco](https://github.com/aarongoa)
+* [Aaron Colaco](http://aaroncolaco.com/)
 * [Amol Pednekar](https://github.com/amolpednekar)
 * [Rishab Bandekar](https://github.com/haxreo5)
 * [Riya Borkar](https://github.com/riyaborkar)
