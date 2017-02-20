@@ -9,7 +9,8 @@ $(document).ready(function() {
     row.className = "row";                                      // Chain
     var i;
     for(i = 0; i < blocks.length; i++) {
-        var block = document.createElement("div");              // Block
+        var block = document.createElement("div");
+        console.log(blocks[i]);              // Block
         block.className = "col-md-1 ttip";
         var x = i + 1;
         var blocktext = document.createTextNode("B"+ x);
@@ -20,9 +21,12 @@ $(document).ready(function() {
             var d = new Date(blocks[i].transactions[0].timestamp.seconds * 1000);   // Convert Unix timestamp to JS Date
             var transdate = code.appendChild(document.createElement("p"));
             var transtype = code.appendChild(document.createElement("p"));
+            var transid = code.appendChild(document.createElement("p"));
             var ccid = code.appendChild(document.createElement("p"));
             var payload = code.appendChild(document.createElement("p"));
+            
             transdate.appendChild(document.createTextNode("Created:\t" + d.toString() +""));
+            transid.appendChild(document.createTextNode("UUID:\t" + blocks[i].transactions[0].txid));
             transtype.appendChild(document.createTextNode("Type:\t" + blocks[i].transactions[0].type));
             ccid.appendChild(document.createTextNode("CCID:\t" + blocks[i].transactions[0].chaincodeID));
             payload.appendChild(document.createTextNode("Payload:\t" + blocks[i].transactions[0].payload));
