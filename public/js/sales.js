@@ -45,15 +45,15 @@ $(document).ready(function() {
   };
 
 
-  
+
   // Sales Page - Buy from
   $('#buyFrom').on('change', function() {
 
     var selectedPostion = $("#buyFrom").prop('selectedIndex');
     var selectedOwner = $('#buyFrom').find(":selected").text();
-    
+
     var ownersList = document.getElementById(selectedOwner);
-    
+
     var str = ownersList.innerHTML;
     //var res = str.split(",");
 
@@ -80,14 +80,6 @@ $(document).ready(function() {
 
   });
 
-/*  // Auto Resize "Address" textarea
-  $('textarea').each(function () {
-    this.setAttribute('style', 'height:' + (this.scrollHeight) + 'px;overflow-y:hidden;');
-  }).on('input', function () {
-    this.style.height = 'auto';
-    this.style.height = (this.scrollHeight) + 'px';  
-  });*/
-
   // On Click survey dropdown, populate area and location
   $('#survey').on('change', function() {
     // References to textFields
@@ -107,6 +99,6 @@ $(document).ready(function() {
     $('textarea').trigger('input');
   });
 
-  
+
 
 });
