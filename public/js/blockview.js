@@ -1,5 +1,10 @@
 $(document).ready(function() {
 	var blocks = JSON.parse($("#hidden-data").text());
+    blocks.sort(function(a, b){
+        //console.log(a.nonHashData.localLedgerCommitTimestamp.seconds+"******"+b.nonHashData.localLedgerCommitTimestamp.seconds);
+        return a.nonHashData.localLedgerCommitTimestamp.seconds - b.nonHashData.localLedgerCommitTimestamp.seconds;
+    });
+    //blocks.nonHashData.localLedgerCommitTimestamp
 	var row = document.createElement("div");
     row.className = "row";                                      // Chain
     var i;
