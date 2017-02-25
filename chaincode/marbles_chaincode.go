@@ -19,6 +19,10 @@ var ownerIndexStr = "_ownerIndex"
 var surveyIndexStr = "_surveyIndex"
 
 
+console.log('_ownerIndexStr ' + ownerIndexStr + ' request for');
+
+console.log('_surveyIndex ' + surveyIndexStr + ' request for');
+
 // Owner struct stores owner specific details
 type Owner struct {
 	Name      string  `json:"name"`
