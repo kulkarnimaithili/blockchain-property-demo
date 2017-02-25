@@ -19,7 +19,7 @@ type SimpleChaincode struct {
 //var surveyIndexStr = "_surveyIndex"
 
 // ====
-var ownerIndexStr =    [ {
+const ownerIndexStr =    [ {
         "name": "Pune",
         "aadhar": "000000000001",
         "surveyNumbers": [
@@ -33,7 +33,7 @@ var ownerIndexStr =    [ {
             "10"
         ]
     }];
-var surveyIndexStr = [
+const surveyIndexStr = [
     {
         "surveyNo": "18",
         "location": "Panjim",
