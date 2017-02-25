@@ -15,8 +15,43 @@ type SimpleChaincode struct {
 }
 
 // For keeping track of all users and survey numbers
-var ownerIndexStr = "_ownerIndex"
-var surveyIndexStr = "_surveyIndex"
+//var ownerIndexStr = "_ownerIndex"
+//var surveyIndexStr = "_surveyIndex"
+
+// ====
+var ownerIndexStr =    [ {
+        "name": "Pune",
+        "aadhar": "000000000001",
+        "surveyNumbers": [
+            "18"
+        ]
+    },
+    {
+        "name": "Nagpur",
+        "aadhar": "000000100002",
+        "surveyNumbers": [
+            "10"
+        ]
+    }];
+var surveyIndexStr = [
+    {
+        "surveyNo": "18",
+        "location": "Panjim",
+        "area": "3135",
+        "owners": [
+            "Pune"
+        ]
+    },
+    {
+        "surveyNo": "10",
+        "location": "Siolim",
+        "area": "3132",
+        "owners": [
+            "Nagpur"
+        ]
+    }
+];
+// ====
 
 // Owner struct stores owner specific details
 type Owner struct {
