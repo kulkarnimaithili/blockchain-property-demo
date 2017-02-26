@@ -1,6 +1,6 @@
 [
     {
-        "surveyNo": "10",
+        "surveyNo": "20",
         "location": "Panjim",
         "area": "3135",
         "owners": [
@@ -8,7 +8,7 @@
         ]
     },
     {
-        "surveyNo": "11",
+        "surveyNo": "50",
         "location": "Siolim",
         "area": "3132",
         "owners": [
@@ -16,7 +16,7 @@
         ]
     },
     {
-        "surveyNo": "12",
+        "surveyNo": "100",
         "location": "Margao",
         "area": "3131",
         "owners": [

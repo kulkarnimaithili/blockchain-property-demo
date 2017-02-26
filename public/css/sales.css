@@ -1,6 +1,7 @@
 #wrap {
   min-height: 100%;
 }
+
 #main {
   overflow: auto;
   padding-bottom: 150px;
@@ -23,11 +24,13 @@ hr {
   color: #333; /* old IE */
   background-color: #333; /* Modern Browsers */
 }
-#sales {
+#sales, #myPage {
   background: #fff;
   color: #000;
   height: 100%;
-  background-image: url(../imgs/whitebg.jpg);
+  background-image: url(../imgs/background.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
   background-size: cover;
 }
 .container {
@@ -36,4 +39,8 @@ hr {
 textarea {
   box-sizing: border-box;
   resize: none;
+}
+
+.table, .table th{
+	text-align:center;
 }

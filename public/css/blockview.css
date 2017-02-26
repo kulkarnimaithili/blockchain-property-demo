@@ -2,9 +2,12 @@
   display: none;
 }
 .blocks {
-  position: relative;
-  background-image: url(../imgs/whitebg.jpg);
-  min-height: 100%;
+  /*position: relative;*/
+  background-image: url(../imgs/background.png);
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  background-size: cover;
+  /*min-height: 100%;*/
   height: 100%;
   padding: 3em;
 }

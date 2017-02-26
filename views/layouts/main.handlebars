@@ -14,29 +14,70 @@
   <link href="https://fonts.googleapis.com/css?family=Montserrat" rel="stylesheet" type="text/css"> 
   <link href="https://fonts.googleapis.com/css?family=Barrio" rel="stylesheet">
   <link href="https://fonts.googleapis.com/css?family=Russo+One" rel="stylesheet">  
+  <link href='http://fonts.googleapis.com/css?family=Roboto' rel='stylesheet' type='text/css'>
+
   <link rel="stylesheet" href="css/main.css" /> 
 
-  <title>{{title}} | Blockchain App</title>
+  <style>
+    body {
+      font-family: 'Roboto', sans-serif;
+      font-size: 18px;
+    }
+
+  </style>
+
+  <title>Citi Pulse</title>
 </head>
 
 <body id="myPage" data-spy="scroll" data-target=".navbar" data-offset="50">
 
-    <nav class="navbar navbar-default navbar-fixed-top">
+    <nav class="navbar navbar-default navbar-fixed-top" style="height: 10%">
+
       <div class="container-fluid">
         <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>                        
-          </button>
-          <a class="navbar-brand" href="/">MagicBlocks&trade;</a>
+          
+          <!-- <a class="navbar-brand" href="/">MagicBlocks&trade;</a> -->
+          
+
+          <!-- <label class="text-danger"><strong>CITI PULSE</strong></label> -->
+<a href="#" class="navbar-brand"><img src="https://s4.postimg.org/5qxiucmvx/logo.png" width="120" height="45"></a>
+
+	
+
         </div>
         <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav navbar-right">
-            <li><a href="/">HOME</a></li>
-            <li><a href="/registration">REGISTRATION</a></li>
-            <li><a href="/sale">SALES</a></li>
-            <li><a href="/blockview">BLOCKVIEW</a></li>
+          <ul class="nav navbar-nav">
+            <!-- <li><a href="/">HOME</a></li>
+            <li><a href="/registration">REGISTRATION</a></li> -->
+            
+<!--             <li><a href="/sale">DASHBOARD</a></li>
+            <li><a href="/blockview">TRANSACTIONS</a></li> -->
+            
+          </ul>
+          <select style="float: right;margin-top: 2%">  
+            <option value="Pune">Pune</option>
+            <option value="Nagpur">Nagpur</option>
+            <option value="Bangalore">Bangalore</option>
+          </select>
+        </div>
+      </div>
+    </nav>
+
+    <nav class="navbar navbar-default navbar-static-top" style="margin-top: -1%;background-color: #031759;position: fixed;width: 100%">
+
+      <div class="container-fluid">
+        <div class="navbar-header">
+          
+
+        </div>
+        <div class="collapse navbar-collapse" id="myNavbar">
+          <ul class="nav navbar-nav" style="padding-top: 0.7%;height: 2%">
+            <!-- <li><a href="/">HOME</a></li>
+            <li><a href="/registration">REGISTRATION</a></li> -->
+            
+            <li><a href="/sale">Dashboard</a></li>
+            <li><a href="/blockview">Transactions</a></li>
+            
           </ul>
         </div>
       </div>
@@ -44,8 +85,8 @@
     
   {{{body}}}
 
-   {{!-- Footer Here --}}
-  <footer class="text-center">
+{{!-- Footer Here --}}
+<!--   <footer class="text-center">
 
     <div id="powered_by" style="margin-bottom:1em">Powered by
       <a href="https://www.ibm.com/blockchain/"><img width="128" height="32" src="imgs/Blogo.png" /></a>
@@ -56,7 +97,7 @@
       <span class="glyphicon glyphicon-chevron-up"></span>
     </a><br>
     <p>BlockChain - Technothon 2017 - Persistent Systems, Goa</p> 
-  </footer> 
+  </footer> -->
 
   {{!-- External Scripts here --}}
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>

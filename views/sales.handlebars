@@ -1,62 +1,67 @@
 <link rel="stylesheet" type="text/css" href="css/sales.css">
 <div id="sales">
-  <div class="container">
-    <div class="col-sm-4"></div>
-    <h3 class="text-center main-title">Sell your property</h3>
-    <br>
+  <div class="container"  style="margin-top:5%;">
+  <div class="row" style="background:#c1c1ff !important">
     <div id="salesinner">
       <form id="form-sales">
-        <div class="col-sm-12 form-group">
+        <div class="col-sm-12 form-group" style="padding-top:3%;">
           <div id="salesinner">
-            <div class="col-sm-6 form-group">
-              <label for="usr">Buy From: </label>
+            <div class="col-sm-6 form-group hidden">
+              <label for="usr">Government Official: </label>
               <br>
               <select class="form-control" id="buyFrom" value="--Buy From--" style="width:100%;">
-                <option value="">Select Seller </option>
+                <option value="">Delhi </option>
                 {{#each owners}}
                 <option value="{{this.name}}">{{this.name}}</option>
                 {{/each}}
               </select>
             </div>
-            <div class="col-sm-6 form-group">
+            <div class="col-sm-1 form-group hidden">
               <label for="usr">Area:</label>
               <input type="text" class="form-control" id="areaField" name="Area" disabled="disabled">
             </div>
-            <div class="col-sm-6 form-group">
-              <label for="usr">Survey No: </label>
+			
+			<div class="col-sm-6 form-group">
+              <label for="usr">City: </label>
               <br>
-              <select id="survey" class="form-control" value="--Buy From--" style="width:100%">
-                <option value="">Select Survey No</option>
+              <select class="form-control" id="sellTo" value="--Select Buyer--" style="width:100%;">
+                <option value="">Select City </option>
+                {{#each owners}}
+                <option value="{{this.name}}">{{this.name}}</option>
+                {{/each}}
               </select>
             </div>
+			
             <div class="col-sm-6 form-group">
+              <label for="usr">Loyalty Points: </label>
+              <br>
+              <select id="survey" class="form-control" value="--Buy From--" style="width:100%">
+                <option value="">Select Loyalty Points</option>
+				<option value="">10</option>
+				<option value="">30</option>
+				<option value="">50</option>
+				<option value="">100</option>
+              </select>
+            </div>
+            <div class="col-sm-6 form-group hidden">
               <label for="Address">Address:</label>
               <textarea class="form-control" id="addressField" name="Address" disabled="disabled"></textarea>
             </div>
             <br>
-            <div class="col-xs-12" size="2">
+            <div class="col-xs-12" size="2" hidden>
               <hr>
             </div>
-            <div class="col-sm-6 form-group">
-              <label for="usr">Buyer: </label>
-              <br>
-              <select class="form-control" id="sellTo" value="--Select Buyer--" style="width:100%;">
-                <option value="">Select Buyer </option>
-                {{#each owners}}
-                <option value="{{this.name}}">{{this.name}}</option>
-                {{/each}}
-              </select>
-            </div>
-            <div class="col-sm-2"></div>
+            
+            <div class="col-sm-5"></div>
             <div class="col-sm-2 form-group button-register">
-              <input type="submit" id="buyButton" class="btn btn-default" value="BUY" />
+              <input type="submit" id="buyButton" class="btn btn-default" value="GRANT" />
             </div>
             <div id="blockDetails" class="col-sm-12">
               <br>
               <div class="alert alert-info alert-dismissable">
                 <a id="result" class="close" data-dismiss="alert" aria-label="close">×</a>
                 <strong>
-                  <center>Congratulations!! You are the proud owner of this property..</center>
+                  <center>Loyalty Points have been granted !!</center>
                 </strong>
               </div>
             </div>
@@ -65,6 +70,149 @@
       </form>
     </div>
   </div>
+
+
+    <div class="row"  style="background:#9999ff !important;padding-top:2%;padding-bottom:2%">
+      <div class="col-md-12">
+        <p class="lead text-center"><strong>LEADERBOARD</strong></p>
+        <table class="table table-condensed table-bordered center" style="width:90%;margin:0 auto;">
+          <thead>
+            <tr>
+              <th>Rank</th>
+              <th>City Name</th>
+              <th>Scores</th>
+              <th>Loyalty Points</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>Mumbai</td>
+              <td>4.5</td>
+              <td>150</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>Bangaluru</td>
+              <td>4</td>
+              <td>120</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>Nagpur</td>
+              <td>3.5</td>
+              <td>100</td>
+            </tr>
+            <tr>
+              <td>4</td>
+              <td>Pune</td>
+              <td>3</td>
+              <td>70</td>
+            </tr>
+          </tbody>
+        </table>
+        <p></p>
+        <p></p>
+      </div>
+    </div>
+
+
+    <div class="row"  style="background:#c1c1ff !important;padding-top:2%;padding-bottom:2%">
+      <div class="col-md-12">
+        <p class="lead text-center"><strong>ACTIONABLES</strong></p>
+        <table class="table table-condensed table-bordered center" style="width:90%;margin:0 auto;">
+          <thead>
+            <tr>
+              <th>Sr. No.</th>
+              <th>Area Name</th>
+              <th>Category</th>
+              <th>Date Reported</th>
+              <th>Status</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr class="text-danger">
+              <td>1</td>
+              <td>Karvenagar</td>
+              <td>Cleanliness</td>
+              <td class="text-danger">25-Feb-2017</td>
+              <td class="text-danger">Pending</td>
+            </tr>
+            <tr class="text-danger">
+              <td>2</td>
+              <td>Nal Stop</td>
+              <td>Vigilance</td>
+              <td class="text-danger">23-Feb-2017</td>
+              <td class="text-danger">Pending</td>
+            </tr>
+            <tr class="text-danger">
+              <td>3</td>
+              <td>Vadgaon Budruk</td>
+              <td>Cleanliness</td>
+              <td class="text-danger">22-Feb-2017</td>
+              <td class="text-danger">Pending</td>
+            </tr>
+            <tr class="text-success">
+              <td>4</td>
+              <td>Deccan</td>
+              <td>Cleanliness</td>
+              <td class="text-success">20-Feb-2017</td>
+              <td class="text-success">Done</td>
+            </tr>
+            <tr class="text-success">
+              <td>5</td>
+              <td>Hinjewadi</td>
+              <td>Vigilance</td>
+              <td class="text-success">17-Feb-2017</td>
+              <td class="text-success">Done</td>
+            </tr>
+          </tbody>
+        </table>
+        <p></p>
+        <p></p>
+      </div>
+    </div>
+
+    <div class="row"  style="background:#9999ff !important;padding-top:2%;padding-bottom:2%;margin-bottom:5%">
+      <div class="col-md-12">
+        <p class="lead text-center"><strong>POLLUTION TRACKER</strong></p>
+        <table class="table table-condensed table-bordered center" style="width:90%;margin:0 auto;">
+          <thead>
+            <tr>
+              <th>Sr. No.</th>
+              <th>Air Quality Index</th>
+              <th>Date</th>
+              <th>Threshold</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>1</td>
+              <td>600</td>
+              <td>24-Feb-2017</td>
+              <td>450</td>
+            </tr>
+            <tr>
+              <td>2</td>
+              <td>750</td>
+              <td>21-Feb-2017</td>
+              <td>450</td>
+            </tr>
+            <tr>
+              <td>3</td>
+              <td>500</td>
+              <td>18-Feb-2017</td>
+              <td>450</td>
+            </tr>
+          </tbody>
+        </table>
+        <p></p>
+        <p></p>
+      </div>
+    </div>
+  </div>
+
+
 </div>
 <div id="hidden-users" style="display:none;">
   {{#each owners}}
